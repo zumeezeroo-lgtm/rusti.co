@@ -1,0 +1,815 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rusti.Co - Muebles a Medida</title>
+    <link rel="icon" type="image/png" href="static/main/imagenes/flaticon de rustico.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        html,
+        body {
+            width: 100%;
+            overflow-x: hidden;
+            touch-action: manipulation;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f0ed;
+            color: #4a3f35;
+            margin: 0;
+            padding: 0;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-custom {
+            background-color: #7a5a3a;
+            color: white;
+            font-weight: 600;
+            border-radius: 9999px;
+            padding: 0.5rem 1.5rem;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            background-color: #6a4e2f;
+            color: white;
+        }
+
+        .section-bg-dark {
+            background-color: #4a3f35;
+            color: white;
+        }
+
+        .section-bg-darker {
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .rounded-3xl {
+            border-radius: 1.5rem !important;
+        }
+
+        .icon-box {
+            background-color: #7a5a3a;
+            border-radius: 1.5rem;
+            width: 112px;
+            height: 112px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        .icon-box i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .navbar-texture {
+            background-image: url("static/main/imagenes/patrones y texturas de pagina web-04.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .navbar-custom {
+            background-color: #a57e6e;
+        }
+
+        .text-custom {
+            color: #5b3e2b;
+        }
+
+        .container-fixed {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 1200px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .img-right {
+            width: 100%;
+            max-width: 600px;
+            object-fit: contain;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-inicio img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .btn-inicio img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Estilos mejorados para el menú */
+        .navbar-menu {
+            background-color: #8c6b5b; /* Un tono intermedio entre el logo y el fondo */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1.5rem !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover, .nav-link:focus {
+            color: #f3e9e1 !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #f3e9e1;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 70%;
+            left: 15%;
+        }
+        
+        .dropdown-menu {
+            background-color: #a57e6e;
+            border: none;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin-top: 0.5rem !important;
+        }
+        
+        .dropdown-item {
+            color: white !important;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #7a5a3a;
+            color: white !important;
+        }
+        
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        /* Footer Styles */
+footer {
+    background-color: #4a3f35;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-logo {
+    max-width: 200px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #a57e6e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .flex-md-row {
+                flex-direction: column !important;
+            }
+            .max-w-xl,
+            .max-w-lg {
+                max-width: 100% !important;
+            }
+            .max-w-sm {
+                max-width: 100% !important;
+            }
+            .icon-box {
+                width: 80px;
+                height: 80px;
+                font-size: 0.65rem;
+            }
+            .icon-box i {
+                font-size: 1.5rem;
+            }
+            
+            .navbar-brand img {
+                max-width: 200px !important;
+            }
+
+            .welcome-section .row {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-start;
+            }
+
+            .welcome-section .col-md-6 {
+                text-align: left !important;
+                padding: 0.5rem;
+                width: 50%;
+            }
+
+            .welcome-section h1 img {
+                max-width: 100% !important;
+                margin: 0;
+            }
+
+            .img-right {
+                width: 100%;
+                max-height: 300px;
+                object-fit: contain;
+                margin: 0;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 1rem;
+            }
+
+            .dropdown-menu {
+                position: static;
+                float: none;
+                width: 100%;
+                text-align: center;
+                background-color: #7a5a3a;
+            }
+
+            .nav-item {
+                margin-bottom: 0.5rem;
+            }
+            
+            .nav-link {
+                padding: 0.5rem !important;
+            }
+            
+            .dropdown-item {
+                text-align: center;
+            }
+
+            @media (max-width: 480px) {
+                .welcome-section .col-md-6 {
+                    width: 100%;
+                }
+                
+                .welcome-section .row {
+                    flex-direction: column;
+                }
+                
+                .img-right {
+                    max-height: 200px;
+                    margin-top: 1rem;
+                }
+            }
+        }
+
+        @media (min-width: 992px) {
+            .img-right {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        /* La composición original usa desplazamientos de escritorio. En celular
+           las secciones pasan a una lectura vertical, sin recortes ni traslapes. */
+        @media (max-width: 767.98px) {
+            .home-welcome {
+                min-height: auto !important;
+            }
+
+            .home-welcome .home-welcome-copy {
+                width: 100% !important;
+                padding: 2.75rem 1.5rem !important;
+            }
+
+            .home-welcome .home-welcome-copy > div {
+                margin-left: 0 !important;
+                padding: 0 !important;
+            }
+
+            .home-welcome .home-welcome-copy p {
+                font-size: 1.1rem !important;
+                line-height: 1.65 !important;
+                max-width: 100% !important;
+                margin-bottom: 2rem !important;
+            }
+
+            .home-welcome .btn-inicio {
+                margin-left: 0 !important;
+            }
+
+            .home-welcome .home-welcome-image {
+                display: none !important;
+            }
+
+            .home-what-we-do {
+                min-height: auto !important;
+                padding: 3rem 0 !important;
+            }
+
+            .home-what-we-do .home-what-image,
+            .home-what-we-do .home-what-copy {
+                width: 100% !important;
+                padding: 0 1.5rem !important;
+            }
+
+            .home-what-we-do .home-what-image img {
+                width: 100% !important;
+                max-height: none !important;
+                margin: 0 auto 1.75rem !important;
+            }
+
+            .home-what-we-do .home-what-copy {
+                text-align: center;
+            }
+
+            .home-what-we-do .home-what-copy > div {
+                padding: 0 !important;
+            }
+
+            .home-what-we-do .home-what-copy .mb-4,
+            .home-what-we-do .home-what-copy p,
+            .home-what-we-do .home-what-copy .text-center {
+                margin-left: 0 !important;
+                margin-top: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .home-what-we-do .home-what-copy p {
+                font-size: 1.08rem !important;
+                line-height: 1.65 !important;
+                margin-bottom: 2rem !important;
+            }
+
+            .home-location {
+                min-height: auto !important;
+                padding: 3rem 0 !important;
+            }
+
+            .home-location .row {
+                flex-direction: column;
+            }
+
+            .home-location .home-location-copy,
+            .home-location .home-map-column {
+                width: 100% !important;
+                height: auto !important;
+                padding: 0 1.5rem !important;
+            }
+
+            .home-location .home-location-copy {
+                order: 1;
+                margin-bottom: 2rem;
+            }
+
+            .home-location .home-map-column {
+                order: 2;
+            }
+
+            .home-location .map-container {
+                height: 320px !important;
+            }
+
+            .home-location .home-location-copy p {
+                font-size: 1.08rem !important;
+                line-height: 1.65 !important;
+                margin-bottom: 2rem !important;
+            }
+        }
+    </style>
+    <style>
+      .navbar-custom {
+        min-height: 78px;
+        margin: 5px 5px 0;
+        border-radius: 14px 14px 0 0;
+        background-color: #211914;
+        background-image: linear-gradient(rgba(24,16,12,.3), rgba(24,16,12,.3)), url("static/main/imagenes/patrones y texturas de pagina web-04.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .navbar-custom .container { justify-content: center; }
+      .navbar-custom .navbar-brand img { display: block; width: min(230px, 72vw); max-height: 68px; object-fit: contain; }
+      .navbar-custom .navbar-toggler { display: none; }
+      .navbar-menu { margin: 0 5px; padding: 0; }
+      .navbar-menu .navbar-collapse { display: flex !important; }
+      .navbar-menu .navbar-nav { width: min(100%, 720px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .navbar-menu .nav-item { min-width: 0; }
+      .navbar-menu .nav-link { min-height: 56px; display: flex; align-items: center; justify-content: center; padding: 12px 8px !important; font-size: 1rem; }
+      .navbar-menu .nav-link::after { width: 0; height: 3px; left: 50%; }
+      .navbar-menu .nav-link:hover::after, .navbar-menu .nav-link.active::after { width: 66%; left: 17%; }
+      .navbar-menu .nav-link.active { background: rgba(48,31,24,.22); color: #fff !important; }
+      @media (max-width: 575px) {
+        .navbar-menu .nav-link { min-height: 54px; padding: 10px 4px !important; font-size: .92rem; }
+      }
+    </style>
+<style>
+  /* Navegación fija al desplazarse */
+  .navbar-menu {
+    position: relative !important;
+    z-index: 1030;
+    box-shadow: 0 3px 12px rgba(0,0,0,.18);
+  }
+  .navbar-menu.is-fixed {
+    position: fixed !important;
+    top: 0;
+    left: 5px;
+    right: 5px;
+  }
+  /* Acceso rápido para volver al inicio */
+  #back-to-top {
+    position: fixed;
+    left: 20px;
+    bottom: 22px;
+    z-index: 1040;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: #4a3f35;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
+  }
+  #back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  #back-to-top:hover { background: #755a49; }
+  #back-to-top:focus-visible { outline: 3px solid #d9b49a; outline-offset: 3px; }
+  @media (max-width: 575px) { #back-to-top { left: 12px; bottom: 14px; width: 44px; height: 44px; } }
+</style>
+</head>
+<body>
+    
+
+    <!-- Navbar centrado con logo -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom navbar-texture" style="margin-bottom: 0;">
+        <div class="container text-center">
+            <a class="navbar-brand mx-auto" href="#">
+                <img src="static/main/imagenes/logo en blancos-02.png" alt="Logo Rusti.Co" class="img-fluid" style="max-width: 300px;" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Menú de navegación mejorado -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-menu">
+        <div class="container">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Inicio</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalogo/index.html">Catálogo</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="contacto/index.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<!-- Sección de bienvenida - Versión con botón centrado -->
+<section class="home-welcome" style="background-color: #f5f1ed; overflow: hidden; position: relative; min-height: 80vh; margin-top: 0; padding-top: 0;">
+    <div class="container-fluid px-0 h-100" style="margin-top: 0;">
+        <div class="row g-0 h-100" style="margin-top: 0;">
+            <!-- Columna izquierda: texto -->
+            <div class="col-md-6 ps-5 h-100 d-flex home-welcome-copy" style="background-color: #f5eee7; color: #5c4033; z-index: 2; padding-top: 0; margin-top: 0;">
+                <div class="px-4" style="margin-left: 15%; width: 100%; display: flex; flex-direction: column; justify-content: center; padding-top: 100px; padding-bottom: 100px;">
+                    <div class="mb-4" style="width: 100%; text-align: left;">
+                        <img src="static/main/imagenes/bienvenido a rustico.png" alt="Bienvenido a Rusti.co" class="img-fluid" style="max-width: 650px; width: 100%;">
+                    </div>
+                    <p style="font-size: 1.3rem; line-height: 1.6; margin-bottom: 2.5rem; font-weight: 500; max-width: 90%; text-align: left;">
+                        En Rusti.co, fabricamos muebles de madera y metal con calidad, finos acabados y diseños únicos. Ofrecemos durabilidad y estilo para hogares y negocios en todo El Salvador.
+                        <br><br>
+                        Descubre piezas ideales para tu espacio y dale vida a tu entorno con muebles hechos a la medida. ¡Calidad y diseño en cada detalle!
+                    </p>
+                    <div class="btn-inicio" style="width: 100%; text-align: center; margin-left: -5%;">
+                        <a href="catalogo/index.html">
+                            <img src="static/main/imagenes/boton de inicio-03.png" alt="Ir a Catálogo" class="img-fluid" style="max-width: 220px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Columna derecha: imagen -->
+            <div class="col-md-6 h-100 position-absolute top-0 end-0 home-welcome-image" style="z-index: 1; padding: 0; margin: 0; background-color: #f5f1ed;">
+                <img src="static/main/imagenes/pagina de inicio bienvenidos imagen-02.png" 
+                     alt="Imagen Principal" 
+                     style="height: 130%; width: auto; object-position: right top; object-fit: cover; margin-top: 0; padding-top: 0; display: block;">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section 1: Qué Hacemos? - Versión Ajustada -->
+<section class="py-5 home-what-we-do" style="background: url('static/main/imagenes/fondo de la parte 2 de inicio-04.jpg') center center / cover no-repeat; min-height: 100vh; background-color: #f5f1ed; display: flex; align-items: center; overflow: hidden; margin-top: 0;">
+    <div class="container-fluid px-0">
+        <div class="row g-0 align-items-center">
+            <!-- Imagen del mueble - Pegada a la izquierda -->
+            <div class="col-md-7 home-what-image" style="display: flex; justify-content: flex-start; align-items: center;">
+                <img src="static/main/imagenes/imagen de parte secciom 2-02-02.png" alt="Mueble Rusti.Co" class="img-fluid" style="max-height: 80vh; width: auto; margin-left: -5%;">
+            </div>
+    
+            <!-- Contenido derecho - Desplazado a la derecha -->
+            <div class="col-md-5 pe-5 home-what-copy" style="color: #5c4033;">
+                <div class="px-4">
+                    <!-- Título como imagen - Ajustado con margen superior negativo y más a la izquierda -->
+                    <div class="mb-4" style="margin-left: 0%; margin-top: -290px;">
+                        <img src="static/main/imagenes/titulo que hacemos-03.png" alt="Qué Hacemos" class="img-fluid" style="max-width: 650px; width: 100%;">
+                    </div>
+                    
+                    <!-- Texto grande - Ajustado para alinearse con el título -->
+                    <p style="font-size: 1.3rem; line-height: 1.6; margin-bottom: 2.5rem; font-weight: 500; max-width: 120%; margin-left: -10%;">
+                        En Rusti.co creamos muebles de madera y metal que combinan resistencia, elegancia y personalidad. Cada pieza está diseñada con acabados de primera y un toque único que transforma cualquier espacio. Ya sea para tu hogar o negocio, te ofrecemos soluciones a la medida, con estilo y durabilidad garantizada. ¡Haz de tu espacio un reflejo de buen gusto con Rusti.co!
+                    </p>
+    
+                    <!-- Botón centrado con el texto y título -->
+                    <div class="text-center" style="margin-left: -10%;">
+                        <div class="btn-inicio d-inline-block">
+                            <a href="catalogo/index.html">
+                                <img src="static/main/imagenes/boton de inicio-03.png" alt="Ir a Catálogo" class="img-fluid" style="max-width: 220px;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section 2: Nuestros Productos - Versión Ajustada -->
+<section class="py-5" style="background: url('static/main/imagenes/fondo de secciones-04.jpg') center center / cover no-repeat; min-height: 100vh; background-color: #f5f1ed; display: flex; align-items: center; overflow: hidden; margin-top: 0;">
+    <div class="container-fluid px-0">
+        <div class="row g-0 align-items-center justify-content-center" style="min-height: 80vh;">
+            <div class="col-12 text-center">
+                <!-- Título reemplazado por imagen -->
+                <div class="mb-4 d-flex align-items-center justify-content-center gap-3">
+                    <img src="static/main/imagenes/nuestra area-03.png" alt="Nuestra Área" class="img-fluid" style="max-height: 230px;">
+                </div>
+                
+                <!-- Descripción más grande -->
+                <p class="mb-5 mx-auto" style="max-width: 700px; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); font-size: 1.5rem; line-height: 1.6;">
+                    Contamos con un taller equipado donde fabricamos muebles con finos acabados y diseños únicos, garantizando calidad y durabilidad en cada pieza.
+                </p>
+                
+                <div class="d-flex flex-wrap justify-content-center gap-4">
+                    <div class="d-flex flex-column align-items-center"><img src="static/main/imagenes/areas/area-oficina.png" alt="Área de oficina" style="width: 220px; max-width: 42vw; height: auto;"></div>
+                    <div class="d-flex flex-column align-items-center"><img src="static/main/imagenes/areas/area-comedor.png" alt="Área de comedor" style="width: 220px; max-width: 42vw; height: auto;"></div>
+                    <div class="d-flex flex-column align-items-center"><img src="static/main/imagenes/areas/area-bano.png" alt="Área de baño" style="width: 220px; max-width: 42vw; height: auto;"></div>
+                    <div class="d-flex flex-column align-items-center"><img src="static/main/imagenes/areas/area-jardin.png" alt="Área de jardín" style="width: 220px; max-width: 42vw; height: auto;"></div>
+                    <div class="d-flex flex-column align-items-center"><img src="static/main/imagenes/areas/area-sala.png" alt="Área de sala" style="width: 220px; max-width: 42vw; height: auto;"></div>
+                    <div class="d-flex flex-column align-items-center"><img src="static/main/imagenes/areas/area-bar.png" alt="Área de bar" style="width: 220px; max-width: 42vw; height: auto;"></div>
+                    <div class="d-flex flex-column align-items-center"><img src="static/main/imagenes/areas/area-habitacion.png" alt="Área de habitación" style="width: 220px; max-width: 42vw; height: auto;"></div>
+                    <div class="d-flex flex-column align-items-center"><img src="static/main/imagenes/areas/area-cocina.png" alt="Área de cocina" style="width: 220px; max-width: 42vw; height: auto;"></div>
+                    <div class="d-flex flex-column align-items-center"><img src="static/main/imagenes/areas/area-negocios.png" alt="Área de negocios" style="width: 220px; max-width: 42vw; height: auto;"></div>
+                    <div class="d-flex flex-column align-items-center"><img src="static/main/imagenes/areas/area de restauracion titulo.png" alt="Área de restauracion" style="width: 220px; max-width: 42vw; height: auto;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Cómo Trabajamos? - Versión Ajustada -->
+<section class="py-5" style="background: url('static/main/imagenes/fondo elegante oscuro-04.png') center center / cover no-repeat; min-height: 100vh; background-color: #f5f1ed; display: flex; align-items: center; overflow: hidden;">
+    <div class="container-fluid px-0">
+        <div class="row g-0 align-items-center" style="min-height: 80vh;">
+            <!-- Columna de texto (izquierda) -->
+            <div class="col-md-6 d-flex flex-column justify-content-center text-white" style="height: 80vh;">
+                <div style="max-width: 650px; margin: 0 auto; text-align: center;">
+                    <img src="static/main/imagenes/como trabajamos-03.png" alt="CÓMO TRABAJAMOS" class="img-fluid mb-4" style="max-height: 230px;">
+                    <p class="mb-5 px-4" style="font-size: 1.5rem; line-height: 1.8;">
+                        Somos una empresa 100% Salvadoreña con artesanos de alto nivel y los mejores materiales en el mercado para garantizarles a nuestros clientes
+                    </p>
+                    <div class="btn-inicio">
+                        <a href="contacto/index.html">
+                            <img src="static/main/imagenes/boton de cotizar-06.png"  alt="Ir a Catálogo" class="img-fluid" style="max-width: 220px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Columna de imagen (derecha) -->
+            <div class="col-md-6 d-flex justify-content-center">
+                <img src="static/main/imagenes/pagina web-de rusti.co editables-07.png" 
+                     alt="Proceso de fabricación de muebles en Rusti.Co" 
+                     class="img-fluid rounded-3xl"
+                     style="max-height: 80vh; width: auto;">
+            </div>
+        </div>
+    </div>
+</section>
+ <!-- Section 4: Dónde Estamos? - Versión con Imagen -->
+<section class="py-5 home-location" style="background: url('static/main/imagenes/fondos de ubicación-04.jpg') center center / cover no-repeat; min-height: 100vh; display: flex; align-items: center;">
+    <div class="container-fluid px-0">
+        <div class="row g-0 align-items-center">
+            <!-- Mapa - Tamaño reducido -->
+            <div class="col-lg-5 pe-lg-4 home-map-column" style="padding-left: 290px;">
+                <div class="map-container" style="width: 100%; height: 550px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.123456789012!2d-89.12345678901234!3d13.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f63300f34d6d2d5%3A0xe796a8ccde8b4524!2sMuebles%20Rusti.Co!5e0!3m2!1ses!2ssv!4v1234567890123!5m2!1ses!2ssv" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+            </div>
+            
+            <!-- Contenido - Con imagen de título -->
+            <div class="col-lg-5 text-white d-flex flex-column justify-content-center align-items-center home-location-copy" style="padding-right: 8%; height: 550px;">
+                <div class="text-center px-4">
+                    <!-- Imagen de título reemplazando el texto -->
+                    <div class="mb-4" style="width: 100%; max-width: 400px; margin: 0 auto;">
+                        <img src="static/main/imagenes/nuestra ubicacion-03.png" alt="Nuestra Ubicación" class="img-fluid">
+                    </div>
+                    
+                    <p style="font-size: 1.4rem; line-height: 1.7; margin-bottom: 3rem; font-weight: 500; max-width: 100%;">
+                        Estamos ubicados en El Salvador, donde fabricamos y distribuimos nuestros muebles a todo el país, llevando calidad y diseño a cada hogar y negocio. ¡Visítanos y descubre cómo podemos transformar tus espacios!
+                    </p>
+                    <div class="btn-inicio">
+                        <a href="contacto/index.html" class="btn-img-link">
+                            <img src="static/main/imagenes/ir a ubicación-06.png" alt="Ir a contacto" class="img-fluid" style="max-width: 230px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+       <!-- Footer -->
+       <!-- Footer -->
+       <footer>
+        <div class="container-fixed">
+            <img src="static/main/imagenes/logo en blancos-02.png" alt="Rusti.Co" class="footer-logo img-fluid">
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="catalogo/index.html">Catálogo</a>
+                <a href="contacto/index.html">Contacto</a>
+                <a href="#">Términos y condiciones</a>
+            </div>
+            <p class="mb-0">&copy; 2025 Rusti.Co - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- Voiceflow Chatbot - Versión mejorada pero limpia -->
+    <style>
+        .voiceflow-chat-button {
+            width: 80px !important;
+            height: 80px !important;
+            border-radius: 50% !important;
+            background-color: #7a5a3a !important;
+            box-shadow: 0 4px 12px rgba(122, 90, 58, 0.3) !important;
+            border: none !important;
+            transition: all 0.3s ease !important;
+        }
+        .voiceflow-chat-button:hover {
+            transform: scale(1.1) !important;
+            background-color: #6a4e2f !important;
+        }
+        .voiceflow-chat-icon {
+            width: 40px !important;
+            height: 40px !important;
+        }
+    </style>
+
+    <!-- Modal Próximamente -->
+    <div class="modal fade" id="proximamenteModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+          <h3 class="mb-3">🚧 Próximamente 🚧</h3>
+          <p>Estamos trabajando en nuestro catálogo. Muy pronto podrás descubrir todos nuestros productos.</p>
+          <button type="button" class="btn btn-custom mt-3" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          
+          // Mostrar mensaje si hay error
+          v.onerror = function() {
+              console.error('Error al cargar el script de Voiceflow');
+          };
+          
+          v.onload = function() {
+            try {
+              window.voiceflow.chat.load({
+                verify: { projectID: '683e7b0e20fb626fc20c9dd2' },
+                url: 'https://general-runtime.voiceflow.com',
+                versionID: 'production',
+                voice: {
+                  url: "https://runtime-api.voiceflow.com"
+                },
+                chatContainer: {
+                  styles: {
+                    width: '80px',
+                    height: '80px'
+                  }
+                }
+              });
+              console.log('Chatbot cargado correctamente');
+            } catch (e) {
+              console.error('Error al iniciar Voiceflow:', e);
+            }
+          };
+          
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
+          v.type = "text/javascript"; 
+          s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+<button id="back-to-top" type="button" aria-label="Volver arriba" title="Volver arriba">↑</button>
+<script>
+  (() => {
+    const button = document.getElementById('back-to-top');
+    const menu = document.querySelector('.navbar-menu');
+    const spacer = document.createElement('div');
+    let menuTop = menu ? menu.getBoundingClientRect().top + window.scrollY : 0;
+    const updateMenu = () => {
+      if (!menu) return;
+      const fixed = window.scrollY >= menuTop;
+      if (fixed && !menu.classList.contains('is-fixed')) {
+        spacer.style.height = `${menu.offsetHeight}px`;
+        menu.parentNode.insertBefore(spacer, menu);
+        menu.classList.add('is-fixed');
+      } else if (!fixed && menu.classList.contains('is-fixed')) {
+        menu.classList.remove('is-fixed');
+        spacer.remove();
+      }
+    };
+    const updateButton = () => button.classList.toggle('is-visible', window.scrollY > 240);
+    window.addEventListener('scroll', () => { updateMenu(); updateButton(); }, { passive: true });
+    window.addEventListener('resize', () => {
+      if (menu && !menu.classList.contains('is-fixed')) menuTop = menu.getBoundingClientRect().top + window.scrollY;
+      updateMenu();
+    });
+    button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    updateMenu();
+    updateButton();
+  })();
+</script>
+</body>
+</html>

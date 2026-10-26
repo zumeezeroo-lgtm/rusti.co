@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rusti.Co - Muebles a Medida</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../static/main/imagenes/flaticon de rustico.png" />
+  
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+    <!-- Bootstrap & FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  
+    <!-- Estilos -->
+     
+    <style>
+      /* Navegación Rusti.Co */
+      .navbar-menu {
+          background-color: #8c6b5b;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          padding: 0.5rem 0;
+      }
+  
+      .nav-link {
+          color: white !important;
+          font-weight: 600;
+          font-size: 1.1rem;
+          padding: 0.5rem 1.5rem !important;
+          transition: all 0.3s ease;
+          position: relative;
+      }
+  
+      .nav-link:hover,
+      .nav-link:focus {
+          color: #f3e9e1 !important;
+      }
+  
+      .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          background-color: #f3e9e1;
+          transition: all 0.3s ease;
+      }
+  
+      .nav-link:hover::after {
+          width: 70%;
+          left: 15%;
+      }
+  
+      .navbar-texture {
+          background-image: url("../static/main/imagenes/patrones y texturas de pagina web-04.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+      }
+  
+      .navbar-custom {
+          background-color: #a57e6e;
+      }
+  
+      /* --- ESTILOS POPPINS & RESTO DE PÁGINA --- */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+  
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          text-decoration: none;
+          list-style: none;
+      }
+  
+      body {
+          font-family: 'Poppins', sans-serif;
+      }
+  
+      img {
+          max-width: 100%;
+      }
+  
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+  
+      .header {
+          display: flex;
+          align-items: center;
+          min-height: 80vh;
+          background: linear-gradient(
+              90deg,
+              rgba(241,237,220,1) 0%,
+              rgba(255,255,253,1) 50%,
+              rgba(252,246,232,1) 100%
+          );
+          padding: 70px 0;
+      }
+  
+      .menu {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+      }
+  
+      .logo {
+          font-size: 25px;
+          color: #ff3c2a;
+          text-transform: uppercase;
+          font-weight: 800;
+      }
+  
+      .header-content {
+          display: flex;
+          align-items: center;
+          flex: 1;
+      }
+  
+      .header-txt {
+          flex-basis: 40%;
+      }
+  
+      .header-txt h1 {
+          font-size: 78px;
+          line-height: 1;
+          color: #181818;
+          text-transform: uppercase;
+          margin-bottom: 25px;
+      }
+  
+      p {
+          color: #4b4b4b;
+          font-size: 18px;
+          margin-bottom: 25px;
+      }
+  
+      .btn-1, .btn-3 {
+          display: inline-block;
+          padding: 20px 32px;
+          color: #ff3c2a;
+          border: 2px solid #ff3c2a;
+          text-transform: capitalize;
+          border-radius: 15px;
+      }
+  
+      .btn-1:hover, .btn-3:hover {
+          color: #ffffff;
+          background-color: #ff3c2a;
+      }
+  
+      .header-img {
+          flex-basis: 60%;
+      }
+  
+      .oferts {
+          padding: 100px 0;
+      }
+  
+      h2 {
+          font-size: 40px;
+          line-height: 1;
+          color:#181818;
+          margin-bottom: 10px;
+      }
+  
+      .oferts-content {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 30px;
+      }
+  
+      .oferts-1 {
+          flex-basis: calc(30% -30px);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+          padding: 25px;
+          text-align: center;
+          background-color: #f7fafa;
+          border-radius: 10px;
+      }
+  
+      .oferts-1 img {
+    width: 130px;
+    height: 170px;
+    margin-bottom: 10px;
+}
+  
+      h3 {
+          font-size: 20px;
+          line-height: 1;
+          color: #181818;
+          margin-bottom: 10px;
+      }
+  
+      .product-txt p {
+          margin-bottom: 10px;
+      }
+  
+      .precio {
+          color: #ff3c2a;
+          font-weight: 700;
+          margin-bottom: 20px;
+      }
+  
+      .btn-3 {
+          padding: 4px 20px;
+      }
+  
+      .logan-1 {
+    flex-basis: 40%;
+    background: linear-gradient(
+        rgba(0,0,0,0.2),
+        rgba(0,0,0,0.2)
+      ),
+      url("../static/main/imagenes/IMG_0642.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px;
+    border-radius: 10px;
+}
+  
+      .logan-1 h3 {
+          font-size: 30px;
+          color: #ffffff;
+          text-transform: uppercase;
+      }
+  
+      .logan-1 p {
+          font-size: 10px;
+          text-transform: uppercase;
+          color: #f7f7f7;
+          margin-bottom: 20px;
+      }
+  
+      .btn-2 {
+          display: inline-block;
+          padding: 8px 30px;
+          border: 1px solid #ffffff;
+          color: #ffffff;
+      }
+  
+      .promotion {
+          padding: 80px 0;
+          background-color: #f7f7f7;
+      }
+  
+      .promotion-content {
+          display: flex;
+      }
+  
+      .promotion-txt {
+          flex-basis: 50%;
+      }
+  
+      .promotion-img {
+          flex-basis: 50%;
+          text-align: center;
+      }
+  
+      .promotion-img img {
+          width: 250px;
+      }
+  
+      .product {
+          padding: 100px 0;
+          text-align: center;
+      }
+  
+      .product-content {
+          display: grid;
+          grid-template-columns: repeat(3,1fr);
+          gap: 30px;
+          margin-bottom: 50px;
+      }
+  
+      .blog {
+          padding: 50px 0 100px 0;
+      }
+  
+      .blog-content {
+          display: flex;
+          justify-content: space-between;
+      }
+  
+      .blog-1 {
+          flex-basis: calc(33.3% - 30px);
+          margin-top: 25px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      }
+  
+      .blog-txt {
+          padding: 40px;
+      }
+      .container-fixed {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 1200px;
+        }
+
+  
+      .btn-4 {
+          display: inline-block;
+          border: 1px solid #181818;
+          padding: 8px 25px;
+          text-transform: capitalize;
+          color: #181818;
+      }
+  
+      .footer {
+          padding: 50px 0;
+          display: flex;
+          justify-content: space-between;
+      }
+      /* Footer Styles */
+footer {
+    background-color: #4a3f35;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-logo {
+    max-width: 200px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #a57e6e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+  
+      .link h3 {
+          font-size: 17px;
+          color: #181818;
+          margin-bottom: 10px;
+      }
+  
+      .link a {
+          font-size: 17px;
+          color: #181818;
+          display: block;
+          margin-bottom: 10px;
+      }
+  
+      .link a:hover {
+          color: #ff3c2a;
+      }
+  
+      /* Responsive */
+      @media(max-width:991px) {
+          .header {
+              min-height: 0vh;
+              padding: 100px 30px 50px 30px;
+          }
+  
+          .header-content {
+              flex-direction: column;
+              text-align: center;
+          }
+  
+          .header-txt {
+              margin-bottom: 25px;
+          }
+  
+          .oferts{
+              padding: 30px;
+          }
+  
+          .oferts-content {
+              flex-direction: column;
+          }
+  
+          .oferts-1{
+              margin-bottom: 30px;
+          }
+  
+          .logan-1 {
+              order: -2;
+              margin-bottom: 30px;
+          }
+  
+          .promotion {
+              padding: 30px;
+          }
+  
+          .promotion-content {
+              flex-direction: column;
+              text-align: center;
+          }
+  
+          .promotion-txt {
+              margin-bottom: 25px;
+          }
+  
+          .promotion-img img {
+              width: 200px;
+          }
+  
+          .product {
+              padding: 30px;
+          }
+  
+          .product-content {
+              grid-template-columns: repeat(1, 1fr);
+              gap: 0;
+          }
+  
+          .blog {
+              padding: 30px;
+          }
+  
+          .blog-content {
+              flex-direction: column;
+          }
+  
+          .footer {
+              padding: 30px;
+              flex-direction: column;
+              text-align: center;
+          }
+          
+      }
+      /* Footer compartido para Catálogo y Contacto */
+      footer {
+        background: #4a3f35;
+        color: #fff;
+        padding: 2rem 16px 1.5rem;
+        text-align: center;
+      }
+      footer .container-fixed {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      footer .footer-logo {
+        display: block;
+        width: min(200px, 55vw);
+        max-width: 200px;
+        height: auto;
+        margin: 0 auto 1.5rem;
+      }
+      footer .footer-links {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        column-gap: clamp(1rem, 4vw, 2rem);
+        row-gap: .75rem;
+        margin: 0 auto 1.5rem;
+      }
+      footer .footer-links a { color: #fff; white-space: nowrap; }
+      footer p { margin: 0; color: #fff; }
+      @media (max-width: 380px) {
+        footer .footer-links { column-gap: .7rem; }
+        footer .footer-links a, footer p { font-size: .8rem; }
+      }
+    </style>
+    <style>
+      html { scroll-behavior: smooth; }
+      body { overflow-x: hidden; }
+      .navbar-custom {
+        min-height: 78px;
+        background-color: #211914;
+        background-image: linear-gradient(rgba(24, 16, 12, .3), rgba(24, 16, 12, .3)), url("../static/main/imagenes/patrones y texturas de pagina web-04.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 14px 14px 0 0;
+        margin: 5px 5px 0;
+      }
+      .navbar-custom .container { justify-content: center; }
+      .navbar-custom .navbar-brand img { display: block; width: min(230px, 72vw); max-height: 68px; object-fit: contain; }
+      .navbar-custom .navbar-toggler { display: none; }
+      .navbar-menu { margin: 0 5px; padding: 0; }
+      .navbar-menu .navbar-collapse { display: flex !important; }
+      .navbar-menu .navbar-nav { width: min(100%, 720px); display: grid; grid-template-columns: repeat(3, 1fr); }
+      .navbar-menu .nav-item { min-width: 0; }
+      .navbar-menu .nav-link { min-height: 56px; display: flex; align-items: center; justify-content: center; padding: 12px 8px !important; font-size: 1rem; }
+      .navbar-menu .nav-link::after { width: 0; height: 3px; left: 50%; }
+      .navbar-menu .nav-link:hover::after,
+      .navbar-menu .nav-link.active::after { width: 66%; left: 17%; }
+      .navbar-menu .nav-link.active { background: rgba(48, 31, 24, .22); color: #fff !important; }
+      .page-nav-note { width: min(720px, calc(100% - 36px)); margin: 16px auto 0; padding: 18px 24px; border-radius: 16px; background: #f0e5dc; text-align: center; }
+      .page-nav-note h2 { margin: 0 0 6px; font-size: 1.25rem; color: #503a30; }
+      .page-nav-note p { margin: 0; font-size: .95rem; }
+      .page-nav-note small { display: block; margin-top: 6px; color: #78685f; }
+      .header-content { width: min(1200px, 100%); margin: 0 auto; padding: 42px 24px; gap: 28px; }
+      .header-txt h1 { font-size: clamp(2rem, 5vw, 4.5rem); }
+      .header-img img { width: 100%; height: auto; }
+      .oferts, .product { padding-top: 48px; padding-bottom: 48px; }
+      .oferts-content, .product-content { min-width: 0; }
+      .oferts-1, .logan-1 { min-width: 0; width: 100%; }
+      .oferts-1 img { max-width: 100%; object-fit: contain; }
+      .product-content { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+      .product-content .oferts-1 { margin: 0; }
+      @media (max-width: 760px) {
+        .header-content { padding: 32px 18px; }
+        .header-img { width: 100%; }
+        .header-txt p { font-size: 1rem; }
+        .oferts, .product { padding: 34px 18px; }
+        .oferts h2, .product h2 { font-size: clamp(1.8rem, 8vw, 2.5rem); line-height: 1.15; }
+        .oferts-content, .product-content { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+        .oferts-content { margin-bottom: 24px; }
+        .oferts-1 { padding: 22px 16px; }
+        .oferts-1 img { height: 170px; width: min(100%, 220px); }
+        .logan-1 { min-height: 220px; padding: 30px 22px; margin: 0; }
+        .logan-1 h3 { font-size: 1.6rem; }
+        .product-content { margin-bottom: 24px; }
+        footer .footer-links { flex-direction: column; gap: 12px; }
+      }
+      @media (max-width: 380px) {
+        .navbar-menu .nav-link { font-size: .9rem; }
+        .oferts, .product { padding-left: 12px; padding-right: 12px; }
+      }
+    </style>
+  <style>
+  /* Navegación fija al desplazarse */
+  .navbar-menu {
+    position: sticky !important;
+    top: 0;
+    z-index: 1030;
+    box-shadow: 0 3px 12px rgba(0,0,0,.18);
+  }
+  /* Acceso rápido para volver al inicio */
+  #back-to-top {
+    position: fixed;
+    left: 20px;
+    bottom: 22px;
+    z-index: 1040;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: #4a3f35;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
+  }
+  #back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  #back-to-top:hover { background: #755a49; }
+  #back-to-top:focus-visible { outline: 3px solid #d9b49a; outline-offset: 3px; }
+  @media (max-width: 575px) { #back-to-top { left: 12px; bottom: 14px; width: 44px; height: 44px; } }
+</style>
+</head>
+<body>
+    
+
+    <!-- Navbar centrado con logo (igual que en index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom navbar-texture" style="margin-bottom: 0;">
+        <div class="container text-center">
+            <a class="navbar-brand mx-auto" href="#">
+                <img src="../static/main/imagenes/logo en blancos-02.png" alt="Logo Rusti.Co" class="img-fluid" style="max-width: 300px;" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Menú de navegación mejorado -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-menu">
+        <div class="container">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active" href="index.html" aria-current="page">Catálogo</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../contacto/index.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="page-nav-note" aria-label="Información de la página actual">
+        <h2>Catálogo</h2>
+        <p>Explora los muebles de cada área y encuentra diseños hechos a tu medida.</p>
+        <small>Usa el menú superior para ir a Inicio o Contacto.</small>
+    </section>
+    <div class="header-content container">
+        <div class="header-txt">
+            <h1>Bienvenido a nuestro catálogo</h1>
+            <p>
+                Descubre nuestra exclusiva colección de muebles rústicos artesanales. Cada pieza está cuidadosamente elaborada con materiales de la más alta calidad y un diseño único que combina tradición y modernidad.
+            </p>
+            <a href="#" class="btn-1">Explorar productos</a>
+        </div>
+        <div class="header-img">
+            <img src="../static/main/imagenes/imagen publicitaria-02.png" alt="Muebles rústicos">
+        </div>
+    </div>
+
+</header>
+
+<section class="oferts container" id="lista-1" data-area="cocina">
+    <h2>Área de cocina</h2>
+    <p>Muebles funcionales y personalizados para transformar tu cocina.</p>
+  
+    <div class="oferts-content">
+      <div class="oferts-1 position-relative text-center">
+        <button onclick="prevImage('slider-cocina-plywood')" class="btn btn-light position-absolute top-50 start-0 translate-middle-y" style="z-index: 1;">&#9664;</button>
+        
+        <img id="slider-cocina-plywood" src="../static/main/catalogo/cocina/pantry de cocina de Plywood/IMG_3463.jpg" alt="Pantry de cocina en plywood"
+          onclick="openModalImage(this.src)" style="cursor: pointer; border-radius: 10px;">
+        
+        <button onclick="nextImage('slider-cocina-plywood')" class="btn btn-light position-absolute top-50 end-0 translate-middle-y" style="z-index: 1;">&#9654;</button>
+        
+        <div class="product-txt mt-3">
+          <h3>Pantry de cocina de plywood</h3>
+          <p>Diseño cálido y resistente</p>
+          <p class="precio"></p>
+          <a href="../contacto/index.html" class="agregar-carrito btn-3" data-id="1">Cotizar</a>
+        </div>
+      </div>
+  
+      <div class="oferts-1 position-relative text-center">
+        <button onclick="prevImage('slider-cocina-madera-solida')" class="btn btn-light position-absolute top-50 start-0 translate-middle-y" style="z-index: 1;">&#9664;</button>
+        <img id="slider-cocina-madera-solida" src="../static/main/catalogo/cocina/mueble de cocina de madera solida/mueble de cocina cortes blanco.jpg" alt="Mueble de cocina de madera sólida" onclick="openModalImage(this.src)" style="cursor: pointer; border-radius: 10px;">
+        <button onclick="nextImage('slider-cocina-madera-solida')" class="btn btn-light position-absolute top-50 end-0 translate-middle-y" style="z-index: 1;">&#9654;</button>
+        <div class="product-txt">
+          <h3>Mueble de cocina de madera sólida</h3>
+          <p>Diseño de madera sólida hecho a la medida.</p>
+          <p class="precio"></p>
+          <a href="#" class="agregar-carrito btn-3" data-id="2">Cotizar</a>
+        </div>
+      </div>
+  
+      <div class="logan-1" style="background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url(&quot;../static/main/catalogo/cocina/mueble de cocina de plywood ya listo/cocina y pantry.jpg&quot;);">
+        <h3>Área de cocina</h3>
+        <p>Diseños personalizados</p>
+        <a href="../contacto/index.html" class="btn-2">Información</a>
+      </div>
+    </div>
+    <div class="oferts-content">
+
+    </div>
+  
+  </section>
+  
+  <!-- Modal global reutilizable -->
+  <div class="modal fade" id="imageModal-secondary" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-transparent border-0">
+        <img id="modal-img-secondary" src="" class="img-fluid rounded" alt="Imagen ampliada">
+      </div>
+    </div>
+  </div>
+  
+  <!-- SECCIÓN: DORMITORIO -->
+  <section class="oferts container" id="bar"><h2>Área de Bar</h2><p>Muebles para disfrutar y compartir.</p><div class="oferts-content"><div class="oferts-1"><img src="../static/main/catalogo/área de bar/barra de bar industrial/FVWB0808.jpg" alt="Barra de bar industrial" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;"><div class="product-txt"><h3>Barra industrial</h3><p>Madera y metal para tu bar.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div></div><div class="logan-1"><h3>Área de Bar</h3><p>Diseños a medida</p><a href="../contacto/index.html" class="btn-2">Información</a></div></div></section>
+  <section class="oferts container" id="bano"><h2>Área de Baño</h2><p>Funcionalidad y estilo para tus espacios.</p><div class="oferts-content"><div class="oferts-1"><img src="../static/main/catalogo/baño/mueble de baño/IMG_8593-2.jpg" alt="Mueble de baño" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;"><div class="product-txt"><h3>Mueble de baño</h3><p>Diseño personalizado y funcional.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div></div><div class="logan-1"><h3>Área de Baño</h3><p>Hecho a tu medida</p><a href="../contacto/index.html" class="btn-2">Información</a></div></div></section>
+  <section class="oferts container" id="comedor"><h2>Área de Comedor</h2><p>Piezas para reunir a los que más quieres.</p><div class="oferts-content"><div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0007.jpg|../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0008.jpg|../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0009.jpg|../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0010.jpg|../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0011.jpg|../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0018.jpg"><button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button><img src="../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0007.jpg" alt="Juego de comedor" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;"><button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button><div class="product-txt"><h3>Juego de comedor</h3><p>Madera sólida y acabados finos.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div></div><div class="logan-1"><h3>Área de Comedor</h3><p>Momentos especiales</p><a href="../contacto/index.html" class="btn-2">Información</a></div></div></section>
+  <section class="oferts container" id="jardin"><h2>Área de Jardín</h2><p>Muebles para disfrutar tu exterior.</p><div class="oferts-content"><div class="oferts-1"><img src="../static/main/catalogo/Jardin/IMG_0953.jpg" alt="Mueble para jardín" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;"><div class="product-txt"><h3>Muebles de jardín</h3><p>Comodidad para tu terraza.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div></div><div class="logan-1"><h3>Área de Jardín</h3><p>Espacios al aire libre</p><a href="../contacto/index.html" class="btn-2">Información</a></div></div></section>
+  <section class="oferts container" id="negocios"><h2>Área de Negocios</h2><p>Mobiliario resistente para tu negocio.</p><div class="oferts-content"><div class="oferts-1"><img src="../static/main/catalogo/negocios/columpio industrial/ande6758.jpg" alt="Mueble industrial para negocio" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;"><div class="product-txt"><h3>Mobiliario industrial</h3><p>Soluciones para tu negocio.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div></div><div class="logan-1"><h3>Área de Negocios</h3><p>Diseño y funcionalidad</p><a href="../contacto/index.html" class="btn-2">Información</a></div></div></section>
+  <section class="oferts container" id="restauracion">
+  <h2>Área de Restauración</h2>
+  <p>Devolvemos vida a muebles especiales con cuidado y buenos acabados.</p>
+  <div class="product-content">
+    <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/restauracion-web/tocador-cedro/01.jpg|../static/main/catalogo/restauracion-web/tocador-cedro/02.jpg|../static/main/catalogo/restauracion-web/tocador-cedro/03.jpg|../static/main/catalogo/restauracion-web/tocador-cedro/04.jpg">
+      <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+      <img src="../static/main/catalogo/restauracion-web/tocador-cedro/01.jpg" alt="Restauración de tocador de cedro" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+      <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+      <div class="product-txt"><h3>Tocador de cedro restaurado</h3><p>Restauración y renovación de un tocador de cedro.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+    </div>
+    <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/restauracion-web/baul/01.jpg|../static/main/catalogo/restauracion-web/baul/02.jpg|../static/main/catalogo/restauracion-web/baul/03.jpg">
+      <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+      <img src="../static/main/catalogo/restauracion-web/baul/01.jpg" alt="Restauración de baúl" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+      <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+      <div class="product-txt"><h3>Baúl restaurado</h3><p>Renovación de baúl con atención a sus detalles.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+    </div>
+    <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/restauracion-web/chimenea/01.jpg|../static/main/catalogo/restauracion-web/chimenea/02.jpg|../static/main/catalogo/restauracion-web/chimenea/03.jpg|../static/main/catalogo/restauracion-web/chimenea/04.jpg">
+      <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+      <img src="../static/main/catalogo/restauracion-web/chimenea/01.jpg" alt="Restauración de chimenea" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+      <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+      <div class="product-txt"><h3>Chimenea restaurada</h3><p>Recuperación y renovación de una chimenea.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+    </div>
+    <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/restauracion-web/escritorio-laurel/01.jpg|../static/main/catalogo/restauracion-web/escritorio-laurel/02.jpg|../static/main/catalogo/restauracion-web/escritorio-laurel/03.jpg">
+      <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+      <img src="../static/main/catalogo/restauracion-web/escritorio-laurel/01.jpg" alt="Restauración de escritorio de laurel" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+      <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+      <div class="product-txt"><h3>Escritorio de laurel restaurado</h3><p>Restauración de escritorio de madera de laurel.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+    </div>
+  </div>
+</section>
+  
+  <section class="oferts container catalog-auto-area" data-area="cocina">
+    <h2>Cocina</h2>
+    <p>Todos los diseños disponibles en esta área.</p>
+    <div class="product-content">
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/cocina/mueble de cocina de plywood ya listo/cocina y pantry.jpg|../static/main/catalogo/cocina/mueble de cocina de plywood ya listo/IMG_7734.jpg|../static/main/catalogo/cocina/mueble de cocina de plywood ya listo/Pantry general de cocina.jpg|../static/main/catalogo/cocina/mueble de cocina de plywood ya listo/Puertas de arriba.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/cocina/mueble de cocina de plywood ya listo/cocina y pantry.jpg" alt="mueble de cocina de plywood ya listo" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Mueble de cocina de plywood listo</h3><p>Cocina en plywood resistente, hecha a la medida de tu espacio.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/cocina/Pantry de cocina melamina/IMG_8365.jpg|../static/main/catalogo/cocina/Pantry de cocina melamina/IMG_8366.jpg|../static/main/catalogo/cocina/Pantry de cocina melamina/IMG_8367.jpg|../static/main/catalogo/cocina/Pantry de cocina melamina/IMG_8368.jpg|../static/main/catalogo/cocina/Pantry de cocina melamina/IMG_8369.jpg|../static/main/catalogo/cocina/Pantry de cocina melamina/IMG_8371.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/cocina/Pantry de cocina melamina/IMG_8365.jpg" alt="Pantry de cocina melamina" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Pantry de cocina de melamina</h3><p>Pantry de melamina con acabado limpio y funcional.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/cocina/pantry industrial ya editados/IMG_0032 1.jpg|../static/main/catalogo/cocina/pantry industrial ya editados/Mueble Industrial.jpg|../static/main/catalogo/cocina/pantry industrial ya editados/vista 1.jpg|../static/main/catalogo/cocina/pantry industrial ya editados/vista 2.jpg|../static/main/catalogo/cocina/pantry industrial ya editados/vista 3.jpg|../static/main/catalogo/cocina/pantry industrial ya editados/vistab de cerca.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/cocina/pantry industrial ya editados/IMG_0032 1.jpg" alt="pantry industrial" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Pantry industrial</h3><p>Pantry de estilo industrial en madera y metal.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/cocina/pantry otro/IMG_0594.jpg|../static/main/catalogo/cocina/pantry otro/IMG_0595.jpg|../static/main/catalogo/cocina/pantry otro/IMG_0598.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/cocina/pantry otro/IMG_0594.jpg" alt="pantry de melamina" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Pantry de melamina</h3><p>Pantry de melamina personalizado para aprovechar cada rincón.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section class="oferts container catalog-auto-area" data-area="bar">
+    <h2>Área de Bar</h2>
+    <p>Todos los diseños disponibles en esta área.</p>
+    <div class="product-content">
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/área de bar/barra de bar industrial/FVWB0808.jpg|../static/main/catalogo/área de bar/barra de bar industrial/GRWH3550.PNG|../static/main/catalogo/área de bar/barra de bar industrial/IMG_E9168.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/área de bar/barra de bar industrial/FVWB0808.jpg" alt="barra de bar industrial" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Barra de bar industrial</h3><p>Barra de madera y metal para compartir en casa o negocio.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/área de bar/carrito de bar industrial/FYUJ6427.JPG.jpg">
+        
+        <img src="../static/main/catalogo/área de bar/carrito de bar industrial/FYUJ6427.JPG.jpg" alt="carrito de bar industrial" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        
+        <div class="product-txt"><h3>Carrito de bar industrial</h3><p>Carrito móvil con diseño industrial y gran funcionalidad.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/área de bar/mueble de bar industrial/IMG-20230426-WA0008.jpg|../static/main/catalogo/área de bar/mueble de bar industrial/IMG-20230426-WA0009.jpg|../static/main/catalogo/área de bar/mueble de bar industrial/IMG-20230426-WA0010.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/área de bar/mueble de bar industrial/IMG-20230426-WA0008.jpg" alt="mueble de bar industrial" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Mueble de bar industrial</h3><p>Mueble de bar industrial para organizar bebidas y accesorios.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section class="oferts container catalog-auto-area" data-area="bano">
+    <h2>Área de Baño</h2>
+    <p>Todos los diseños disponibles en esta área.</p>
+    <div class="product-content">
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/baño/mueble de baño/IMG_8593-2.jpg|../static/main/catalogo/baño/mueble de baño/IMG_8596.jpg|../static/main/catalogo/baño/mueble de baño/IMG_8598.jpg|../static/main/catalogo/baño/mueble de baño/IMG_8598s.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/baño/mueble de baño/IMG_8593-2.jpg" alt="mueble de baño" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Mueble de baño</h3><p>Mueble de baño personalizado, práctico y resistente.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/baño/mueble de baño melamina/IMG_8932.jpg|../static/main/catalogo/baño/mueble de baño melamina/IMG_8933.jpg|../static/main/catalogo/baño/mueble de baño melamina/IMG_8934.jpg|../static/main/catalogo/baño/mueble de baño melamina/IMG_8935.jpg|../static/main/catalogo/baño/mueble de baño melamina/mueble de baño melamina.png">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/baño/mueble de baño melamina/IMG_8932.jpg" alt="mueble de baño melamina" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Mueble de baño de melamina</h3><p>Mueble de melamina para baño con acabado fácil de limpiar.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/baño/mueble de baño melaminma opcion 2/IMG_8948.jpg|../static/main/catalogo/baño/mueble de baño melaminma opcion 2/IMG_8949.jpg|../static/main/catalogo/baño/mueble de baño melaminma opcion 2/IMG_8950.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/baño/mueble de baño melaminma opcion 2/IMG_8948.jpg" alt="Mueble de baño de melamina, opción 2" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Mueble de baño de melamina, opción 2</h3><p>Alternativa en melamina para un baño ordenado y funcional.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section class="oferts container catalog-auto-area" data-area="comedor">
+    <h2>Área de Comedor</h2>
+    <p>Todos los diseños disponibles en esta área.</p>
+    <div class="product-content">
+      
+      
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0007.jpg|../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0008.jpg|../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0009.jpg|../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0010.jpg|../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0011.jpg|../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0018.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0007.jpg" alt="Juego de comedor de madera sólida" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Juego de comedor de madera sólida</h3><p>Comedor de madera sólida para reuniones especiales.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/comedor/juego de comedor industrisl/IMG-20210418-WA0007.jpg|../static/main/catalogo/comedor/juego de comedor industrisl/IMG-20210418-WA0008.jpg|../static/main/catalogo/comedor/juego de comedor industrisl/IMG-20210418-WA0009.jpg|../static/main/catalogo/comedor/juego de comedor industrisl/IMG-20210418-WA0010.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/comedor/juego de comedor industrisl/IMG-20210418-WA0007.jpg" alt="Juego de comedor industrial" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Juego de comedor industrial</h3><p>Juego de comedor industrial en madera y metal.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/comedor/mesa o barra desayunadora/IMG-20210328-WA0061.jpg">
+        
+        <img src="../static/main/catalogo/comedor/mesa o barra desayunadora/IMG-20210328-WA0061.jpg" alt="mesa o barra desayunadora" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        
+        <div class="product-txt"><h3>Mesa o barra desayunadora</h3><p>Mesa o barra desayunadora diseñada para tu rutina diaria.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/comedor/bufetera de melamina/IMG_0006.jpg|../static/main/catalogo/comedor/bufetera de melamina/IMG_0013.jpg|../static/main/catalogo/comedor/bufetera de melamina/5ce5ad6e-5f12-407b-b618-1109b26b79d9 4.JPG">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/comedor/bufetera de melamina/IMG_0006.jpg" alt="Bufetera de melamina" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Bufetera de melamina</h3><p>Diseño funcional para organizar y complementar tu comedor.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+          </div>
+  </section>
+  
+  <section class="oferts container catalog-auto-area" data-area="habitacion">
+    <h2>Área de habitación</h2>
+    <p>Todos los diseños disponibles en esta área.</p>
+    <div class="product-content">
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/Habitación/banca baul negra/banca bauls.jpg|../static/main/catalogo/Habitación/banca baul negra/IMG_0988.jpg|../static/main/catalogo/Habitación/banca baul negra/IMG_0997.jpg|../static/main/catalogo/Habitación/banca baul negra/mueble de banca baul.png">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/Habitación/banca baul negra/banca bauls.jpg" alt="Banca baúl negra" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Banca baúl</h3><p>Banca baúl con almacenamiento para complementar tu habitación.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/Habitación/bases de cama/cama.jpg|../static/main/catalogo/Habitación/bases de cama/IMG_6728.jpg|../static/main/catalogo/Habitación/bases de cama/IMG_6741 (1).jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/Habitación/bases de cama/cama.jpg" alt="bases de cama" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Bases de cama</h3><p>Base de cama firme y personalizada para un descanso cómodo.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/Habitación/mesas de noche/IMG_9538.jpg|../static/main/catalogo/Habitación/mesas de noche/IMG_9553(4).jpg|../static/main/catalogo/Habitación/mesas de noche/IMG_9559(1).jpg|../static/main/catalogo/Habitación/mesas de noche/IMG_9569.jpg|../static/main/catalogo/Habitación/mesas de noche/IMG_9573(2).jpg|../static/main/catalogo/Habitación/mesas de noche/IMG_9585(2).jpg|../static/main/catalogo/Habitación/mesas de noche/IMG_9607.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/Habitación/mesas de noche/IMG_9538.jpg" alt="mesas de noche" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Mesas de noche</h3><p>Mesa de noche funcional para mantener todo a tu alcance.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/Habitación/zapatera 2/IMG_8063 parte de abajo.jpg|../static/main/catalogo/Habitación/zapatera 2/IMG_8063 parte de arriba sueter.jpg|../static/main/catalogo/Habitación/zapatera 2/IMG_8063 pose.jpg|../static/main/catalogo/Habitación/zapatera 2/IMG_8063 ww.jpg|../static/main/catalogo/Habitación/zapatera 2/IMG_8063.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/Habitación/zapatera 2/IMG_8063 parte de abajo.jpg" alt="zapatera 2" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Zapatera</h3><p>Zapatera práctica para mantener tu habitación organizada.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section class="oferts container catalog-auto-area" data-area="jardin">
+    <h2>Área de Jardín</h2>
+    <p>Todos los diseños disponibles en esta área.</p>
+    <div class="product-content">
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/Jardin/juwgo de comedor para terraza .jpg">
+        
+        <img src="../static/main/catalogo/Jardin/juwgo de comedor para terraza .jpg" alt="Juego de comedor para terraza" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        
+        <div class="product-txt"><h3>Silla de exterior </h3><p>Juego de comedor para terraza, ideal para disfrutar al aire libre.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/Jardin/IMG_0953.jpg|../static/main/catalogo/Jardin/IMG_0958.jpg|../static/main/catalogo/Jardin/IMG_0963.jpg|../static/main/catalogo/Jardin/IMG_0965(1).jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/Jardin/IMG_0953.jpg" alt="Juego de comedor para terraza" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Juego de comedor para terraza</h3><p>Juego de comedor para terraza, ideal para disfrutar al aire libre.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+     
+          </div>
+  </section>
+  
+  <section class="oferts container catalog-auto-area" data-area="negocios">
+    <h2>Área de Negocios</h2>
+    <p>Todos los diseños disponibles en esta área.</p>
+    <div class="product-content">
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/negocios/columpio industrial/ande6758.jpg|../static/main/catalogo/negocios/columpio industrial/columpio.jpg|../static/main/catalogo/negocios/columpio industrial/img-20220220-wa0061.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/negocios/columpio industrial/ande6758.jpg" alt="columpio industrial" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Columpio industrial</h3><p>Columpio industrial resistente para crear espacios memorables.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/negocios/estante industrial/estantes para organización .jpg|../static/main/catalogo/negocios/estante industrial/img_0071 1.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/negocios/estante industrial/estantes para organización .jpg" alt="estante industrial" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Estante industrial</h3><p>Estante industrial para exhibir y organizar tu negocio.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/negocios/juego de comedor industrial/img-20220220-wa0061.jpg|../static/main/catalogo/negocios/juego de comedor industrial/img-20220220-wa0069.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/negocios/juego de comedor industrial/img-20220220-wa0061.jpg" alt="Juego de comedor industrial" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Juego de comedor industrial</h3><p>Comedor industrial pensado para uso comercial.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/negocios/juego de comedor madera y metal/img_20210615_142037.jpg|../static/main/catalogo/negocios/juego de comedor madera y metal/img_20210615_142053.jpg|../static/main/catalogo/negocios/juego de comedor madera y metal/img_20210615_142422.jpg|../static/main/catalogo/negocios/juego de comedor madera y metal/img_20210615_142440.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/negocios/juego de comedor madera y metal/img_20210615_142037.jpg" alt="Juego de comedor de madera y metal" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Juego de comedor de madera y metal</h3><p>Juego de comedor que combina madera y metal con gran resistencia.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/negocios/juego de comedor de madera Sólida/IMG_0274.jpg|../static/main/catalogo/negocios/juego de comedor de madera Sólida/juego de comedor de madera de laurel.jpg|../static/main/catalogo/negocios/juego de comedor de madera Sólida/juego de comedor de madera de laurel 02.jpg|../static/main/catalogo/negocios/juego de comedor de madera Sólida/juego de comedor de madera de laurel 03.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/negocios/juego de comedor de madera Sólida/IMG_0274.jpg" alt="Juego de comedor de madera sólida" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Juego de comedor de madera sólida</h3><p>Juego de comedor de laurel con mesa y sillas para compartir en familia.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section class="oferts container catalog-auto-area" data-area="oficina">
+    <h2>Oficina</h2>
+    <p>Todos los diseños disponibles en esta área.</p>
+    <div class="product-content">
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/oficina/escritorio de melamina/IMG-20220608-WA0036.jpg|../static/main/catalogo/oficina/escritorio de melamina/IMG-20220608-WA0038.jpg|../static/main/catalogo/oficina/escritorio de melamina/IMG-20220608-WA0039.jpg|../static/main/catalogo/oficina/escritorio de melamina/IMG-20220608-WA0041.jpg|../static/main/catalogo/oficina/escritorio de melamina/IMG-20220608-WA0042.jpg|../static/main/catalogo/oficina/escritorio de melamina/IMG-20220608-WA0051.jpg|../static/main/catalogo/oficina/escritorio de melamina/IMG-20220608-WA0056.jpg|../static/main/catalogo/oficina/escritorio de melamina/IMG-20220608-WA0058.jpg|../static/main/catalogo/oficina/escritorio de melamina/IMG-20220608-WA0059.jpg|../static/main/catalogo/oficina/escritorio de melamina/IMG_0698.jpg|../static/main/catalogo/oficina/escritorio de melamina/IMG_0699.jpg|../static/main/catalogo/oficina/escritorio de melamina/IMG_0700.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/oficina/escritorio de melamina/IMG-20220608-WA0036.jpg" alt="escritorio de melamina" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Escritorio de melamina</h3><p>Escritorio de melamina práctico para trabajar con comodidad.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/oficina/Mueble auxiliar industrial/IMG_1209.jpg|../static/main/catalogo/oficina/Mueble auxiliar industrial/IMG_1214.jpg|../static/main/catalogo/oficina/Mueble auxiliar industrial/IMG_1217.jpg|../static/main/catalogo/oficina/Mueble auxiliar industrial/IMG_1224.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/oficina/Mueble auxiliar industrial/IMG_1209.jpg" alt="Mueble auxiliar industrial" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Mueble auxiliar industrial</h3><p>Mueble auxiliar industrial para optimizar tu oficina.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/oficina/mueble industrial de oficina/IMG_1802.jpg|../static/main/catalogo/oficina/mueble industrial de oficina/IMG_1813.jpg|../static/main/catalogo/oficina/mueble industrial de oficina/IMG_1816.jpg|../static/main/catalogo/oficina/mueble industrial de oficina/IMG_1820.jpg|../static/main/catalogo/oficina/mueble industrial de oficina/IMG_1821.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/oficina/mueble industrial de oficina/IMG_1802.jpg" alt="mueble industrial de oficina" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Mueble industrial de oficina</h3><p>Mobiliario de oficina en madera y metal, resistente y funcional.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section class="oferts container catalog-auto-area" data-area="sala">
+    <h2>Área de Estar</h2>
+    <p>Todos los diseños disponibles en esta área.</p>
+    <div class="product-content">
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/sala/mesa redonda/IMG_0928.jpg|../static/main/catalogo/sala/mesa redonda/IMG_0933.jpg|../static/main/catalogo/sala/mesa redonda/IMG_0984.jpg|../static/main/catalogo/sala/mesa redonda/IMG_0986.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/sala/mesa redonda/IMG_0928.jpg" alt="mesa redonda" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Mesa redonda</h3><p>Mesa redonda versátil para sala, comedor o espacios de reunión.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/sala/mueble tv metal y madera/mesa tv abiertita.jpg|../static/main/catalogo/sala/mueble tv metal y madera/mesa tv decorada.jpg|../static/main/catalogo/sala/mueble tv metal y madera/mesa tv gaveta cerrada.jpg|../static/main/catalogo/sala/mueble tv metal y madera/mesa tv.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/sala/mueble tv metal y madera/mesa tv abiertita.jpg" alt="mueble tv metal y madera" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Mueble para TV de metal y madera</h3><p>Mueble para TV en metal y madera con estilo contemporáneo.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/sala/recibidora industrial/fotos de mesa recibidora decoradas+.jpg|../static/main/catalogo/sala/recibidora industrial/IMG_7803o-Recuperado.jpg|../static/main/catalogo/sala/recibidora industrial/IMG_7830.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/sala/recibidora industrial/fotos de mesa recibidora decoradas+.jpg" alt="recibidora industrial" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Mesa recibidora industrial</h3><p>Recibidora industrial para dar carácter a tu entrada.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/sala/recibidora madera sólida/IMG_7803.jpg|../static/main/catalogo/sala/recibidora madera sólida/mesa recibidora abierta y cerrada.jpg|../static/main/catalogo/sala/recibidora madera sólida/mesa recibidora abierta.jpg|../static/main/catalogo/sala/recibidora madera sólida/RECIBIDORA FRONTAL.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/sala/recibidora madera sólida/IMG_7803.jpg" alt="recibidora madera sólida" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Mesa recibidora de madera sólida</h3><p>Recibidora de madera sólida con acabados de calidad.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+      <div class="oferts-1 position-relative text-center catalog-product" data-images="../static/main/catalogo/sala/tv/IMG_8102.jpg|../static/main/catalogo/sala/tv/IMG_8119.jpg|../static/main/catalogo/sala/tv/IMG_8120.jpg|../static/main/catalogo/sala/tv/IMG_8121.jpg|../static/main/catalogo/sala/tv/IMG_8122.jpg|../static/main/catalogo/sala/tv/IMG_8123.jpg|../static/main/catalogo/sala/tv/IMG_8124.jpg|../static/main/catalogo/sala/tv/IMG_8125.jpg|../static/main/catalogo/sala/tv/IMG_8126.jpg|../static/main/catalogo/sala/tv/IMG_8127.jpg">
+        <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y catalog-image-prev" type="button" style="z-index:1;">&#9664;</button>
+        <img src="../static/main/catalogo/sala/tv/IMG_8102.jpg" alt="tv" class="catalog-product-image" onclick="openModalImage(this.src)" style="cursor:pointer; border-radius:10px;">
+        <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y catalog-image-next" type="button" style="z-index:1;">&#9654;</button>
+        <div class="product-txt"><h3>Mueble para TV de melamina</h3><p>Mueble para TV diseñado a la medida de tu sala.</p><a href="../contacto/index.html" class="btn-3">Cotizar</a></div>
+      </div>
+      
+    </div>
+  </section>
+  
+
+  <section class="oferts container" id="dormitorio" data-area="habitacion">
+    <h2> Área de habitación </h2>
+    <p> Espacios acogedores y funcionales para tu descanso </p>
+  
+    <div class="oferts-content">
+  
+      <!-- Producto con imágenes rotativas y flechas -->
+      
+     <!-- Nuevo producto: RCG-01 y RCG-02 -->
+     <div class="oferts-1 position-relative text-center" style="flex: 1 1 300px; max-width: 320px;">
+    <!-- Botón izquierda -->
+    <button onclick="prevImage('slider-rcg')" class="btn btn-light position-absolute top-50 start-0 translate-middle-y" style="z-index: 1;">
+        &#9664;
+    </button>
+
+    <!-- Imagen con slider -->
+    <img id="slider-rcg" src="../static/main/imagenes/RCG-01.jpg" alt="Mueble RCG"
+         style="cursor:pointer; border-radius:10px;" onclick="openModalImage(this.src)">
+
+    <!-- Botón derecha -->
+    <button onclick="nextImage('slider-rcg')" class="btn btn-light position-absolute top-50 end-0 translate-middle-y" style="z-index: 1;">
+        &#9654;
+    </button>
+
+    <div class="product-txt mt-3">
+        <h3>Respaldo de cama grande</h3>
+        <p>Estilo moderno con acabado elegante</p>
+        <p class="precio"></p>
+        <a href="../contacto/index.html" class="agregar-carrito btn-3" data-id="20">Cotizar</a>
+    </div>
+</div>
+
+
+
+</div>
+
+<div class="oferts-content">
+  <div class="logan-1">
+    <h3>Área de habitación</h3>
+    <p>Productos</p>
+    <a href="#" class="btn-2">Información</a>
+  </div>
+
+  
+  <!-- Nuevo producto RCP -->
+<div class="oferts-1 position-relative text-center">
+    <!-- Flecha izquierda -->
+    <button onclick="prevImage('slider-rcp')" class="btn btn-light position-absolute top-50 start-0 translate-middle-y" style="z-index: 1;">
+      &#9664;
+    </button>
+  
+    <!-- Imagen que cambia -->
+    <img id="slider-rcp" src="../static/main/imagenes/RCP-01.jpg" alt="RCP" style="cursor:pointer; border-radius:10px;" onclick="openModalImage(this.src)">
+  
+    <!-- Flecha derecha -->
+    <button onclick="nextImage('slider-rcp')" class="btn btn-light position-absolute top-50 end-0 translate-middle-y" style="z-index: 1;">
+      &#9654;
+    </button>
+  
+    <div class="product-txt mt-3">
+        <h3>Respaldo de cama pequeña</h3>
+        <p>Estilo rústico contemporáneo</p>
+        <p class="precio"></p>
+        <a href="../contacto/index.html" class="agregar-carrito btn-3" data-id="20">Cotizar</a>
+      </div>
+    </div>
+  
+    </div>
+  </section>
+  
+  <!-- MODAL de imagen ampliada -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-transparent border-0">
+        <img id="modal-img" src="" class="img-fluid rounded" alt="Imagen ampliada">
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- SECCIÓN: ESCRITORIO -->
+  <section class="oferts container" id="escritorio" data-area="oficina">
+    <h2> Área de Oficina </h2>
+    <p> Diseño práctico y elegante para tu espacio de trabajo </p>
+    <div class="oferts-content">
+    <div class="oferts-1 position-relative text-center">
+        <!-- Flecha izquierda -->
+        <button onclick="prevImage('slider-librera')" class="btn btn-light position-absolute top-50 start-0 translate-middle-y" style="z-index: 1;">
+          &#9664;
+        </button>
+      
+        <!-- Imagen principal -->
+        <img id="slider-librera" src="../static/main/imagenes/IMG_0621.png" alt="Librera" onclick="openModalImage(this.src)" style="cursor: pointer; border-radius: 10px;">
+      
+        <!-- Flecha derecha -->
+        <button onclick="nextImage('slider-librera')" class="btn btn-light position-absolute top-50 end-0 translate-middle-y" style="z-index: 1;">
+          &#9654;
+        </button>
+      
+        <!-- Información del producto -->
+        <div class="product-txt mt-3">
+          <h3>Librera Rústica</h3>
+          <p>Ideal para oficina o estudio</p>
+          <p class="precio"></p>
+          <a href="../contacto/index.html" class="agregar-carrito btn-3" data-id="20">Cotizar</a>
+        </div>
+      </div>
+  
+  
+      <div class="logan-1">
+        <h3>Área de Oficina</h3>
+        <p>Todo para optimizar tu productividad</p>
+        <a href="#" class="btn-2">Información</a>
+      </div>
+  
+    </div>
+  </section>
+  
+  <!-- SECCIÓN: SALA -->
+  <section class="oferts container" id="sala" data-area="sala">
+    <h2> Área de Estar </h2>
+    <p> Muebles acogedores para momentos inolvidables </p>
+    <div class="oferts-content">
+        <div class="logan-1">
+          <h3>Área de Estar</h3>
+          <p>Productos</p>
+          <a href="#" class="btn-2">Información</a>
+        </div>
+    
+        <div class="oferts-1 position-relative text-center">
+            <!-- Flecha izquierda -->
+            <button onclick="prevImage('slider-recibidora-sala')" class="btn btn-light position-absolute top-50 start-0 translate-middle-y" style="z-index: 1;">
+              &#9664;
+            </button>
+          
+            <!-- Imagen principal -->
+            <img id="slider-recibidora-sala" src="../static/main/catalogo/sala/mesa recibidora de madera sólida/IMG_0401.jpg" alt="Mesa recibidora de madera sólida"
+                 onclick="openModalImage(this.src)" style="cursor: pointer; border-radius: 10px;">
+          
+            <!-- Flecha derecha -->
+            <button onclick="nextImage('slider-recibidora-sala')" class="btn btn-light position-absolute top-50 end-0 translate-middle-y" style="z-index: 1;">
+              &#9654;
+            </button>
+          
+            <!-- Información del producto -->
+            <div class="product-txt mt-3">
+              <h3>Mesa recibidora de madera sólida</h3>
+              <p>Mesa recibidora de madera sólida, funcional y elegante.</p>
+              <p class="precio"></p>
+              <a href="../contacto/index.html" class="agregar-carrito btn-3" data-id="25">Cotizar</a>
+            </div>
+          </div>
+          
+      </div>
+    </section>
+
+    <main class="product container" id="lista-2">
+        <h2>Productos</h2>
+        <p>
+          Conoce más muebles para cada espacio de tu hogar.
+        </p>
+      
+        <div class="product-content">
+      
+          <!-- Producto: Mesa de Noche -->
+          <div class="oferts-1">
+            <div class="position-relative text-center">
+              <button onclick="prevImage('slider-dormitorio')" class="btn btn-light position-absolute top-50 start-0 translate-middle-y" style="z-index: 1;">&#9664;</button>
+              <img id="slider-dormitorio" src="../static/main/imagenes/MDN0_-01.jpg" alt="Mesa de Noche" style="cursor:pointer; border-radius:10px;" onclick="openModalImage(this.src)">
+              <button onclick="nextImage('slider-dormitorio')" class="btn btn-light position-absolute top-50 end-0 translate-middle-y" style="z-index: 1;">&#9654;</button>
+            </div>
+            <div class="product-txt mt-3 text-center">
+              <h3>Mesa de Noche</h3>
+              <p>Madera fina con acabado rústico</p>
+              <p class="precio"></p>
+              <a href="../contacto/index.html" class="agregar-carrito btn-3" data-id="11">Cotizar</a>
+            </div>
+          </div>
+      
+          <!-- Producto: RCG -->
+          <div class="oferts-1">
+            <div class="position-relative text-center">
+              <button onclick="prevImage('slider-rcg')" class="btn btn-light position-absolute top-50 start-0 translate-middle-y" style="z-index: 1;">&#9664;</button>
+              <img id="slider-rcg" src="../static/main/imagenes/RCG-01.jpg" alt="Respaldo de cama grande" style="cursor:pointer; border-radius:10px;" onclick="openModalImage(this.src)">
+              <button onclick="nextImage('slider-rcg')" class="btn btn-light position-absolute top-50 end-0 translate-middle-y" style="z-index: 1;">&#9654;</button>
+            </div>
+            <div class="product-txt mt-3 text-center">
+              <h3>Respaldo de cama grande</h3>
+              <p>Estilo moderno con acabado elegante</p>
+              <p class="precio"></p>
+              <a href="../contacto/index.html" class="agregar-carrito btn-3" data-id="20">Cotizar</a>
+            </div>
+          </div>
+      
+          <!-- Producto: RCP -->
+          <div class="oferts-1">
+            <div class="position-relative text-center">
+              <button onclick="prevImage('slider-rcp')" class="btn btn-light position-absolute top-50 start-0 translate-middle-y" style="z-index: 1;">&#9664;</button>
+              <img id="slider-rcp" src="../static/main/imagenes/RCP-01.jpg" alt="Respaldo de cama pequeña" style="cursor:pointer; border-radius:10px;" onclick="openModalImage(this.src)">
+              <button onclick="nextImage('slider-rcp')" class="btn btn-light position-absolute top-50 end-0 translate-middle-y" style="z-index: 1;">&#9654;</button>
+            </div>
+            <div class="product-txt mt-3 text-center">
+              <h3>Respaldo de cama pequeña</h3>
+              <p>Diseño funcional y moderno</p>
+              <p class="precio"></p>
+              <a href="../contacto/index.html" class="agregar-carrito btn-3" data-id="21">Cotizar</a>
+            </div>
+          </div>
+      
+          <!-- Producto: Librera -->
+          <div class="oferts-1">
+            <div class="position-relative text-center">
+              <button onclick="prevImage('slider-librera')" class="btn btn-light position-absolute top-50 start-0 translate-middle-y" style="z-index: 1;">&#9664;</button>
+              <img id="slider-librera" src="../static/main/imagenes/IMG_0621.png" alt="Librera" style="cursor:pointer; border-radius:10px;" onclick="openModalImage(this.src)">
+              <button onclick="nextImage('slider-librera')" class="btn btn-light position-absolute top-50 end-0 translate-middle-y" style="z-index: 1;">&#9654;</button>
+            </div>
+            <div class="product-txt mt-3 text-center">
+              <h3>Librera Rústica</h3>
+              <p>Ideal para oficina o estudio</p>
+              <p class="precio"></p>
+              <a href="../contacto/index.html" class="agregar-carrito btn-3" data-id="22">Cotizar</a>
+            </div>
+          </div>
+      
+          <!-- Producto: Mesa Redonda -->
+          <div class="oferts-1">
+            <div class="position-relative text-center">
+              <button onclick="prevImage('slider-mr')" class="btn btn-light position-absolute top-50 start-0 translate-middle-y" style="z-index: 1;">&#9664;</button>
+              <img id="slider-mr" src="../static/main/imagenes/MR-01.jpg" alt="Mesa Redonda" style="cursor:pointer; border-radius:10px;" onclick="openModalImage(this.src)">
+              <button onclick="nextImage('slider-mr')" class="btn btn-light position-absolute top-50 end-0 translate-middle-y" style="z-index: 1;">&#9654;</button>
+            </div>
+            <div class="product-txt mt-3 text-center">
+              <h3>Mesa Redonda</h3>
+              <p>Perfecta para reuniones y comedor</p>
+              <p class="precio"></p>
+              <a href="../contacto/index.html" class="agregar-carrito btn-3" data-id="23">Cotizar</a>
+            </div>
+          </div>
+      
+          <!-- Producto: Mueble para TV -->
+          <div class="oferts-1">
+            <div class="position-relative text-center">
+              <button onclick="prevImage('slider-mtv')" class="btn btn-light position-absolute top-50 start-0 translate-middle-y" style="z-index: 1;">&#9664;</button>
+              <img id="slider-mtv" src="../static/main/imagenes/MTV_01.jpg" alt="Mueble TV" style="cursor:pointer; border-radius:10px;" onclick="openModalImage(this.src)">
+              <button onclick="nextImage('slider-mtv')" class="btn btn-light position-absolute top-50 end-0 translate-middle-y" style="z-index: 1;">&#9654;</button>
+            </div>
+            <div class="product-txt mt-3 text-center">
+              <h3>Mueble para TV</h3>
+              <p>Diseño moderno y elegante</p>
+              <p class="precio"></p>
+              <a href="../contacto/index.html" class="agregar-carrito btn-3" data-id="24">Cotizar</a>
+            </div>
+          </div>
+      
+        </div>
+      </main>
+      
+
+    <!-- Footer -->
+    <footer>
+        <div class="container-fixed">
+            <img src="../static/main/imagenes/logo en blancos-02.png" alt="Rusti.Co" class="footer-logo img-fluid">
+            <div class="footer-links">
+                <a href="../index.html">Inicio</a>
+                <a href="index.html">Catálogo</a>
+                <a href="../contacto/index.html">Contacto</a>
+                <a href="#">Términos y condiciones</a>
+            </div>
+            <p class="mb-0">&copy; 2025 Rusti.Co - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+<style>
+    .voiceflow-chat-button {
+        width: 80px !important;
+        height: 80px !important;
+        border-radius: 50% !important;
+        background-color: #7a5a3a !important;
+        box-shadow: 0 4px 12px rgba(122, 90, 58, 0.3) !important;
+        border: none !important;
+        transition: all 0.3s ease !important;
+    }
+    .voiceflow-chat-button:hover {
+        transform: scale(1.1) !important;
+        background-color: #6a4e2f !important;
+    }
+    .voiceflow-chat-icon {
+        width: 40px !important;
+        height: 40px !important;
+    }
+</style>
+
+<style>
+  /* Evita que las tarjetas y las flechas se monten unas sobre otras. */
+  .oferts-content {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+  }
+  .oferts-content > .oferts-1,
+  .oferts-content > .logan-1 {
+    min-width: 0;
+    margin: 0;
+  }
+  .oferts-1 { position: relative; }
+  .oferts-1 img { display: block; margin-left: auto; margin-right: auto; }
+  .logan-1 { min-height: 260px; }
+  /* Algunas filas antiguas tenían otra fila dentro. Al aplanarla, ninguna
+     tarjeta queda comprimida ni invade la columna vecina. */
+  .oferts-content > .oferts-content { display: contents; }
+  @media (max-width: 991px) {
+    .oferts-content { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 575px) {
+    .oferts-content { grid-template-columns: 1fr; gap: 18px; }
+    .oferts-1, .logan-1 { width: 100%; }
+  }
+
+  /* Imagen destacada de cada área: todas salen de su propia carpeta. */
+  #bar .logan-1 { background-image: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url("../static/main/catalogo/área de bar/barra de bar industrial/FVWB0808.jpg"); }
+  #bano .logan-1 { background-image: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url("../static/main/catalogo/baño/mueble de baño/IMG_8593-2.jpg"); }
+  #comedor .logan-1 { background-image: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url("../static/main/catalogo/comedor/juego de comedor de madera sólida/img-20230612-wa0007.jpg"); }
+  #jardin .logan-1 { background-image: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url("../static/main/catalogo/Jardin/IMG_0953.jpg"); }
+  #negocios .logan-1 { background-image: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url("../static/main/catalogo/negocios/columpio industrial/ande6758.jpg"); }
+  #dormitorio .logan-1 { background-image: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url("../static/main/catalogo/Habitación/bases de cama/IMG_6741 (1).jpg"); }
+  #escritorio .logan-1 { background-image: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url("../static/main/catalogo/oficina/mueble industrial de oficina/IMG_1821.jpg"); }
+  #sala .logan-1 { background-image: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url("../static/main/catalogo/sala/mueble tv metal y madera/mesa tv.jpg"); }
+  @media (max-width: 760px) {
+    footer .footer-links { flex-direction: row; }
+  }
+</style>
+<script>
+    // Diccionario con las imágenes de cada slider
+    const productImages = {
+        
+      'slider-img': [
+        "../static/main/imagenes/BB0-01.jpg",
+        "../static/main/imagenes/BB0-02.jpg",
+        "../static/main/imagenes/BB0-03.jpg"
+      ],
+      'slider-cocina-plywood': [
+        "../static/main/catalogo/cocina/pantry de cocina de Plywood/IMG_3463.jpg",
+        "../static/main/catalogo/cocina/pantry de cocina de Plywood/IMG_3462.jpg",
+        "../static/main/catalogo/cocina/pantry de cocina de Plywood/IMG_3461.jpg"
+      ],
+      'slider-cocina-madera-solida': [
+        "../static/main/catalogo/cocina/mueble de cocina de madera solida/mueble de cocina cortes blanco.jpg",
+        "../static/main/catalogo/cocina/mueble de cocina de madera solida/mueble de cocina cortes blanco-01.jpg",
+        "../static/main/catalogo/cocina/mueble de cocina de madera solida/mueble de cocina cortes blanco-02.jpg"
+      ],
+      'slider-dormitorio': [
+        "../static/main/imagenes/MDN0_-01.jpg",
+        "../static/main/imagenes/MDN0_-02.jpg",
+        "../static/main/imagenes/MDN0_-03.jpg",
+        "../static/main/imagenes/MDN0-01.jpg",
+        "../static/main/imagenes/MDN0-02.jpg",
+        "../static/main/imagenes/MDN0-03.jpg"
+      ],
+      'slider-rcg': [
+        "../static/main/imagenes/RCG-01.jpg",
+        "../static/main/imagenes/RCG-02.jpg"
+      ],
+      'slider-rcp': [
+      "../static/main/imagenes/RCP-01.jpg",
+       "../static/main/imagenes/RCP-02.jpg"
+      ],
+      'slider-pantry': [
+    "../static/main/imagenes/BB0-01.jpg",
+    "../static/main/imagenes/BB0-02.jpg",
+    "../static/main/imagenes/BB0-03.jpg"
+  ],'slider-librera': [
+  "../static/main/imagenes/IMG_0621.png",
+   "../static/main/imagenes/Librera.png",
+   "../static/main/imagenes/librera 2.png",
+   "../static/main/imagenes/Librera 3.png"
+   ],'slider-rsv': [
+    "../static/main/imagenes/RSV-01.jpg",
+    "../static/main/imagenes/RSV-02.jpg",
+    "../static/main/imagenes/RSV-03.jpg",
+    "../static/main/imagenes/RSV-04.jpg",
+    "../static/main/imagenes/RSV-05.jpg",
+    "../static/main/imagenes/RSV-06.jpg"
+  ],'slider-mr': [
+   "../static/main/imagenes/MR-01.jpg",
+   "../static/main/imagenes/MR-02.jpg",
+   "../static/main/imagenes/MR-03.jpg",
+   "../static/main/imagenes/MR-04.jpg"
+],
+'slider-mtv': [
+  "../static/main/imagenes/MTV_01.jpg",
+  "../static/main/imagenes/MTV_02.jpg",
+  "../static/main/imagenes/MTV_03.jpg",
+  "../static/main/imagenes/MTV_04.jpg",
+  "../static/main/imagenes/MTV0.jpg",
+  "../static/main/imagenes/MTV1.jpg",
+  "../static/main/imagenes/MTV2.jpg",
+  "../static/main/imagenes/MTV3.jpg"
+],
+      'slider-recibidora-sala': [
+        "../static/main/catalogo/sala/mesa recibidora de madera sólida/IMG_0401.jpg",
+        "../static/main/catalogo/sala/mesa recibidora de madera sólida/IMG_0403.jpg",
+        "../static/main/catalogo/sala/mesa recibidora de madera sólida/IMG_0407.jpg"
+      ],
+    };
+  
+    // Índices actuales para cada slider
+    const currentIndexes = {
+      'slider-img': 0,
+      'slider-cocina-plywood': 0,
+      'slider-cocina-madera-solida': 0,
+      'slider-dormitorio': 0,
+      'slider-rcg': 0,
+      'slider-rcp' : 0,
+      'slider-pantry' : 0,
+      'slider-librera' :0,
+      'slider-rsv' : 0,
+      'slider-mr' : 0,
+      'slider-mtv' : 0,
+      'slider-recibidora-sala' : 0,
+    };
+  
+    function showImage(sliderId, index) {
+      const images = productImages[sliderId];
+      if (!images || !images.length) return;
+  
+      currentIndexes[sliderId] = index;
+      // Algunos productos aparecen en más de una sección. Actualizamos todas
+      // sus instancias para que ninguna galería quede con una imagen antigua.
+      document.querySelectorAll(`[id="${sliderId}"]`).forEach((imgElement) => {
+        imgElement.src = images[index];
+      });
+    }
+  
+    function nextImage(sliderId) {
+      const images = productImages[sliderId];
+      if (!images) return;
+  
+      const currentIndex = currentIndexes[sliderId] || 0;
+      const nextIndex = (currentIndex + 1) % images.length;
+      showImage(sliderId, nextIndex);
+    }
+  
+    function prevImage(sliderId) {
+      const images = productImages[sliderId];
+      if (!images) return;
+  
+      const currentIndex = currentIndexes[sliderId] || 0;
+      const prevIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(sliderId, prevIndex);
+    }
+  
+    function openModalImage(src) {
+      const modalImg = document.getElementById('modal-img');
+      if (modalImg) {
+        modalImg.src = src;
+      }
+      const modal = new bootstrap.Modal(document.getElementById('imageModal'));
+      modal.show();
+    }
+  
+    // Cambiar automáticamente cada 3 segundos los sliders deseados
+    ['slider-recibidora-sala','slider-mtv','slider-mr', 'slider-rsv', 'slider-librera','slider-pantry', 'slider-cocina-plywood', 'slider-cocina-madera-solida', 'slider-dormitorio', 'slider-rcg','slider-rcp'].forEach(sliderId => {
+      setInterval(() => nextImage(sliderId), 3000);
+    });
+  </script> 
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      
+      // Mostrar mensaje si hay error
+      v.onerror = function() {
+          console.error('Error al cargar el script de Voiceflow');
+      };
+      
+      v.onload = function() {
+        try {
+          window.voiceflow.chat.load({
+            verify: { projectID: '683e7b0e20fb626fc20c9dd2' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            voice: {
+              url: "https://runtime-api.voiceflow.com"
+            },
+            chatContainer: {
+              styles: {
+                width: '80px',
+                height: '80px'
+              }
+            }
+          });
+          console.log('Chatbot cargado correctamente');
+        } catch (e) {
+          console.error('Error al iniciar Voiceflow:', e);
+        }
+      };
+      
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
+      v.type = "text/javascript"; 
+      s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+
+<script>
+  // Une los productos encontrados en las carpetas con su área original,
+  // evitando que el nombre de cada área aparezca dos veces en el catálogo.
+  document.querySelectorAll('.catalog-auto-area').forEach((area) => {
+    const targets = {
+      cocina: 'lista-1', bar: 'bar', bano: 'bano', comedor: 'comedor',
+      habitacion: 'dormitorio', jardin: 'jardin', negocios: 'negocios',
+      oficina: 'escritorio', sala: 'sala'
+    };
+    const destination = document.getElementById(targets[area.dataset.area]);
+    const products = area.querySelector('.product-content');
+    if (destination && products) {
+      const areaKey = area.dataset.area;
+
+      if (areaKey === 'cocina') {
+        // Cocina ya tiene la estructura de referencia: dos muebles y su imagen.
+        // Añade debajo los productos restantes sin repetir los ya mostrados.
+        const shownImages = new Set([...destination.querySelectorAll('.oferts-1 img')].map((img) => new URL(img.src).pathname));
+        products.querySelectorAll(':scope > .oferts-1 img').forEach((img) => {
+          if (shownImages.has(new URL(img.src).pathname)) img.closest('.oferts-1').remove();
+        });
+        if (products.querySelector(':scope > .oferts-1')) destination.appendChild(products);
+        else products.remove();
+      } else {
+        // Conserva los muebles que ya fueron elegidos manualmente y completa
+        // la primera fila con productos de la carpeta de esa misma área.
+        const oldRows = [...destination.querySelectorAll(':scope > .oferts-content')];
+        const manualCards = oldRows.flatMap((row) => [...row.querySelectorAll(':scope > .oferts-1')]);
+        const feature = oldRows.flatMap((row) => [...row.querySelectorAll(':scope > .logan-1')])[0];
+        const sourceCards = [...products.querySelectorAll(':scope > .oferts-1')];
+        const imagePath = (card) => {
+          const img = card.querySelector('img');
+          return img ? new URL(img.src, document.baseURI).pathname : '';
+        };
+        const usedImages = new Set(manualCards.map(imagePath).filter(Boolean));
+        const availableSource = sourceCards.filter((card) => !usedImages.has(imagePath(card)));
+        const selected = manualCards.slice(0, 2);
+        while (selected.length < 2 && availableSource.length) selected.push(availableSource.shift());
+        const remaining = [...manualCards.slice(2), ...availableSource];
+        const remainingImages = new Set();
+        const uniqueRemaining = remaining.filter((card) => {
+          const path = imagePath(card);
+          if (path && (usedImages.has(path) || remainingImages.has(path))) return false;
+          if (path) remainingImages.add(path);
+          return true;
+        });
+
+        oldRows.forEach((row) => row.remove());
+        const showcase = document.createElement('div');
+        showcase.className = 'oferts-content';
+        selected.forEach((card) => showcase.appendChild(card));
+        if (!feature) {
+          const label = area.querySelector('h2').textContent;
+          const generatedFeature = document.createElement('div');
+          generatedFeature.className = 'logan-1';
+          generatedFeature.innerHTML = `<h3>${label}</h3><p>Diseños personalizados</p><a href="../contacto/index.html" class="btn-2">Información</a>`;
+          showcase.appendChild(generatedFeature);
+        } else {
+          showcase.appendChild(feature);
+        }
+        destination.appendChild(showcase);
+        products.replaceChildren(...uniqueRemaining);
+        if (products.querySelector(':scope > .oferts-1')) destination.appendChild(products);
+        else products.remove();
+      }
+    }
+    area.remove();
+  });
+
+  // Restauración también usa la misma presentación: dos piezas y una imagen
+  // de la categoría arriba; las piezas restantes conservan sus tarjetas abajo.
+  const restoration = document.getElementById('restauracion');
+  const restorationProducts = restoration?.querySelector(':scope > .product-content');
+  if (restoration && restorationProducts) {
+    const cards = [...restorationProducts.querySelectorAll(':scope > .oferts-1')];
+    const showcase = document.createElement('div');
+    showcase.className = 'oferts-content';
+    cards.slice(0, 2).forEach((card) => showcase.appendChild(card));
+    const feature = document.createElement('div');
+    feature.className = 'logan-1';
+    feature.style.backgroundImage = 'linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url("../static/main/catalogo/restauracion-web/chimenea/01.jpg")';
+    feature.innerHTML = '<h3>Área de Restauración</h3><p>Devolvemos vida a tus muebles</p><a href="../contacto/index.html" class="btn-2">Información</a>';
+    showcase.appendChild(feature);
+    restoration.insertBefore(showcase, restorationProducts);
+    if (!restorationProducts.querySelector(':scope > .oferts-1')) restorationProducts.remove();
+  }
+
+  document.querySelectorAll('.catalog-product').forEach((product) => {
+    const images = product.dataset.images.split('|');
+    const image = product.querySelector('.catalog-product-image');
+    let current = 0;
+    const changeImage = (direction) => {
+      current = (current + direction + images.length) % images.length;
+      image.src = images[current];
+    };
+    product.querySelector('.catalog-image-prev')?.addEventListener('click', () => changeImage(-1));
+    product.querySelector('.catalog-image-next')?.addEventListener('click', () => changeImage(1));
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<button id="back-to-top" type="button" aria-label="Volver arriba" title="Volver arriba">↑</button>
+<script>
+  (() => {
+    const button = document.getElementById('back-to-top');
+    const updateButton = () => button.classList.toggle('is-visible', window.scrollY > 240);
+    window.addEventListener('scroll', updateButton, { passive: true });
+    button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    updateButton();
+  })();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,685 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contacto - Rusti.Co - Muebles a Medida</title>
+    <link rel="icon" type="image/png" href="../static/main/imagenes/flaticon de rustico.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        html,
+        body {
+            width: 100%;
+            overflow-x: hidden;
+            touch-action: manipulation;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f0ed;
+            color: #4a3f35;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar-menu {
+        background-color: #8c6b5b;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 0.5rem 0;
+    }
+    .nav-link {
+        color: white !important;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 0.5rem 1.5rem !important;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    .nav-link:hover, .nav-link:focus {
+        color: #f3e9e1 !important;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: #f3e9e1;
+        transition: all 0.3s ease;
+    }
+    .nav-link:hover::after {
+        width: 70%;
+        left: 15%;
+    }
+
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-custom {
+            background-color: #7a5a3a;
+            color: white;
+            font-weight: 600;
+            border-radius: 9999px;
+            padding: 0.5rem 1.5rem;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            background-color: #6a4e2f;
+            color: white;
+        }
+
+        .section-bg-dark {
+            background-color: #4a3f35;
+            color: white;
+        }
+
+        .section-bg-darker {
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .rounded-3xl {
+            border-radius: 1.5rem !important;
+        }
+
+        .icon-box {
+            background-color: #7a5a3a;
+            border-radius: 1.5rem;
+            width: 112px;
+            height: 112px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        .icon-box i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .navbar-texture {
+            background-image: url("../static/main/imagenes/patrones y texturas de pagina web-04.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .navbar-custom {
+            background-color: #a57e6e;
+        }
+
+        .text-custom {
+            color: #5b3e2b;
+        }
+
+        .container-fixed {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 1200px;
+        }
+
+        .dropdown:hover .dropdown-menu 
+        
+        {
+            display: block;
+        }
+        
+        .dropdown-menu {
+            background-color: #a57e6e;
+            border: none;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin-top: 0.5rem !important;
+        }
+        
+        .dropdown-item {
+            color: white !important;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #7a5a3a;
+            color: white !important;
+        }
+
+        /* Estilos para la sección de contacto */
+        .contact-section {
+            padding: 4rem 0;
+        }
+
+        .contact-info {
+            background-color: #4a3f35;
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            height: 100%;
+        }
+
+        .contact-info h2 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .contact-info h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #a57e6e;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            background-color: #a57e6e;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h5 {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #a57e6e;
+        }
+
+        .contact-text p {
+            margin-bottom: 0;
+            color: #e0e0e0;
+        }
+
+        .map-container {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .contact-form {
+            padding: 3rem;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .contact-form h3 {
+            color: #4a3f35;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .contact-form h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #a57e6e;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control:focus {
+            border-color: #7a5a3a;
+            box-shadow: 0 0 0 0.25rem rgba(122, 90, 58, 0.25);
+        }
+
+        .btn-primary {
+            background-color: #7a5a3a;
+            border: none;
+            padding: 12px 25px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #6a4e2f;
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #a57e6e;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #7a5a3a;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: #4a3f35;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            max-width: 200px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #a57e6e;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar-brand img {
+                max-width: 200px !important;
+            }
+
+            .contact-info, .contact-form {
+                padding: 2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-item {
+                flex-direction: column;
+            }
+
+            .contact-icon {
+                margin-bottom: 0.5rem;
+            }
+        }
+        /* Footer compartido para Catálogo y Contacto */
+        footer {
+            background: #4a3f35;
+            color: #fff;
+            padding: 2rem 16px 1.5rem;
+            text-align: center;
+        }
+        footer .container-fixed {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        footer .footer-logo {
+            display: block;
+            width: min(200px, 55vw);
+            max-width: 200px;
+            height: auto;
+            margin: 0 auto 1.5rem;
+        }
+        footer .footer-links {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            column-gap: clamp(1rem, 4vw, 2rem);
+            row-gap: .75rem;
+            margin: 0 auto 1.5rem;
+        }
+        footer .footer-links a {
+            color: #fff;
+            white-space: nowrap;
+        }
+        footer p { margin: 0; color: #fff; }
+        @media (max-width: 380px) {
+            footer .footer-links { column-gap: .7rem; }
+            footer .footer-links a, footer p { font-size: .8rem; }
+        }
+    </style>
+    <style>
+      .navbar-custom {
+        min-height: 78px;
+        margin: 5px 5px 0;
+        border-radius: 14px 14px 0 0;
+        background-color: #211914;
+        background-image: linear-gradient(rgba(24,16,12,.3), rgba(24,16,12,.3)), url("../static/main/imagenes/patrones y texturas de pagina web-04.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .navbar-custom .container { justify-content: center; }
+      .navbar-custom .navbar-brand img { display: block; width: min(230px, 72vw); max-height: 68px; object-fit: contain; }
+      .navbar-custom .navbar-toggler { display: none; }
+      .navbar-menu { margin: 0 5px; padding: 0; }
+      .navbar-menu .navbar-collapse { display: flex !important; }
+      .navbar-menu .navbar-nav { width: min(100%, 720px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .navbar-menu .nav-item { min-width: 0; }
+      .navbar-menu .nav-link { min-height: 56px; display: flex; align-items: center; justify-content: center; padding: 12px 8px !important; font-size: 1rem; }
+      .navbar-menu .nav-link::after { width: 0; height: 3px; left: 50%; }
+      .navbar-menu .nav-link:hover::after, .navbar-menu .nav-link.active::after { width: 66%; left: 17%; }
+      .navbar-menu .nav-link.active { background: rgba(48,31,24,.22); color: #fff !important; }
+      @media (max-width: 575px) {
+        .navbar-menu .nav-link { min-height: 54px; padding: 10px 4px !important; font-size: .92rem; }
+      }
+    </style>
+<style>
+  /* Navegación fija al desplazarse */
+  .navbar-menu {
+    position: relative !important;
+    z-index: 1030;
+    box-shadow: 0 3px 12px rgba(0,0,0,.18);
+  }
+  .navbar-menu.is-fixed {
+    position: fixed !important;
+    top: 0;
+    left: 5px;
+    right: 5px;
+  }
+  /* Acceso rápido para volver al inicio */
+  #back-to-top {
+    position: fixed;
+    left: 20px;
+    bottom: 22px;
+    z-index: 1040;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: #4a3f35;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
+  }
+  #back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  #back-to-top:hover { background: #755a49; }
+  #back-to-top:focus-visible { outline: 3px solid #d9b49a; outline-offset: 3px; }
+  @media (max-width: 575px) { #back-to-top { left: 12px; bottom: 14px; width: 44px; height: 44px; } }
+</style>
+</head>
+<body>
+    
+
+    <!-- Navbar centrado con logo (igual que en index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom navbar-texture" style="margin-bottom: 0;">
+        <div class="container text-center">
+            <a class="navbar-brand mx-auto" href="#">
+                <img src="../static/main/imagenes/logo en blancos-02.png" alt="Logo Rusti.Co" class="img-fluid" style="max-width: 300px;" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Menú de navegación mejorado -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-menu">
+        <div class="container">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../catalogo/index.html">Catálogo</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de contacto -->
+    <section class="contact-section">
+        <div class="container-fixed">
+            <div class="row g-4">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-info">
+                        <h2>Contáctanos</h2>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Teléfono</h5>
+                                <p>+503 7952 0766</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Email</h5>
+                                <p>info@rustico.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Horario</h5>
+                                <p>Lunes a Viernes<br>9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Dirección</h5>
+                                <p>Calle Universitaria Norte, San Salvador, poligono F 6 bis, Mejicanos</p>
+                            </div>
+                        </div>
+                        
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.123456789012!2d-89.12345678901234!3d13.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f63300f34d6d2d5%3A0xe796a8ccde8b4524!2sMuebles%20Rusti.Co!5e0!3m2!1ses!2ssv!4v1234567890123!5m2!1ses!2ssv" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/MueblesRusticosSV" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/mueblesrusticossv/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://api.whatsapp.com/send?phone=50379520766&text=Enlace%3A%0Ahttps%3A%2F%2Ffb.me%2F81jAfp70P%0A%0A%C2%A1Hola%21+Podr%C3%ADas+darme+m%C3%A1s+informaci%C3%B3n+de...&source_url=https%3A%2F%2Ffb.me%2F81jAfp70P&icebreaker=%C2%A1Hola%21+Podr%C3%ADas+darme+m%C3%A1s+informaci%C3%B3n+de...&app=facebook&entry_point=post_cta&jid=50379520766%40s.whatsapp.net&lid=63947868766251%40lid&show_ad_attribution=1&source=FB_Post&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3NDk2MTU5MjUsInBob25lIjoiNTAzNzk1MjA3NjYiLCJ0ZXh0IjoiRW5sYWNlOlxuaHR0cHM6XC9cL2ZiLm1lXC84MWpBZnA3MFBcblxuXHUwMGExSG9sYSEgUG9kclx1MDBlZGFzIGRhcm1lIG1cdTAwZTFzIGluZm9ybWFjaVx1MDBmM24gZGUuLi4iLCJzb3VyY2VfdXJsIjoiaHR0cHM6XC9cL2ZiLm1lXC84MWpBZnA3MFAiLCJpY2VicmVha2VyIjoiXHUwMGExSG9sYSEgUG9kclx1MDBlZGFzIGRhcm1lIG1cdTAwZTFzIGluZm9ybWFjaVx1MDBmM24gZGUuLi4iLCJhcHAiOiJmYWNlYm9vayIsImVudHJ5X3BvaW50IjoicG9zdF9jdGEiLCJqaWQiOiI1MDM3OTUyMDc2Nlx1MDA0MHMud2hhdHNhcHAubmV0IiwibGlkIjoiNjM5NDc4Njg3NjYyNTFcdTAwNDBsaWQiLCJzaG93X2FkX2F0dHJpYnV0aW9uIjoxLCJzb3VyY2UiOiJGQl9Qb3N0Iiwic291cmNlX2lkIjoiMTAwNjg0NTk1MTYwOTI4OCIsImNvbnRleHQiOiJBZmY3bDZUMll1TTA4cDhNRlZPNnBtZ2MwVXV1UTgwWGExNkxLWVhMTjhnUEhJQm9iS0xESjZpd0lBMF93VmpGQklrMm9vanYxQ2M4VjBJR2xTWHh5eGZWSU5ucDhlRzJiczlYUGNGbHF6eEE5dXR2NmIwd1Jxc0lNenhTVjB6ejFhdEgtWUtGTUIwQ1V4NnBVdnk3SllUSzJCVExyZWIzS1NFM28wLTZSYm53SnRZTk9QODBSQTFwenpMLWJabktCaUxVNjd6ZmpXdGJNd1h0SWxTUEJ3VkF4LTNwMU5pU3loeHBnUUhNbDhaU0NZLWd3c3I4eXc5OVVRSnBtNm1KMjgteERNei1MYXBYVWo5djhFcEFENlBvOGdaT1lHa2VrX2wxU090TVMxWHJldHdpdndIc0hya1EtampKQWNWT2JyRllkZVRKNXdRd2xUMXljY0QweFRzUm1tTlBWWFkySXUzb09GZ1diNm53Z09mTkFoUnRTamFILUVidzc1Yl9WRDYxZVFndSJ9.uK-Dt1Y7UofzB5LafxMVSR7oYlqheStlf1zn_aBJPrpx63OoKDjSeiO-kf8qzRK5gGGink3Pvg7F5U4qA-tOzg&fbclid=IwY2xjawK0kxFleHRuA2FlbQIxMABicmlkETFoQjJuOG92RlUwQzBRdWFUAR5FbFsfRyQakr16p-1VY2z7qeMcW-KbWyQg7Hs8FACiYlGV8gLdkPhzGCXhRQ_aem_l64u2OW1myrr_5HbOefRQQ" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer>
+        <div class="container-fixed">
+            <img src="../static/main/imagenes/logo en blancos-02.png" alt="Rusti.Co" class="footer-logo img-fluid">
+            <div class="footer-links">
+                <a href="../index.html">Inicio</a>
+                <a href="../catalogo/index.html">Catálogo</a>
+                <a href="index.html">Contacto</a>
+                <a href="#">Términos y condiciones</a>
+            </div>
+            <p class="mb-0">&copy; 2025 Rusti.Co - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- Voiceflow Chatbot - Versión mejorada pero limpia -->
+    <style>
+        .voiceflow-chat-button {
+            width: 80px !important;
+            height: 80px !important;
+            border-radius: 50% !important;
+            background-color: #7a5a3a !important;
+            box-shadow: 0 4px 12px rgba(122, 90, 58, 0.3) !important;
+            border: none !important;
+            transition: all 0.3s ease !important;
+        }
+        .voiceflow-chat-button:hover {
+            transform: scale(1.1) !important;
+            background-color: #6a4e2f !important;
+        }
+        .voiceflow-chat-icon {
+            width: 40px !important;
+            height: 40px !important;
+        }
+    </style>
+    <style>
+      @media (max-width: 768px) {
+        footer .footer-links { flex-direction: row; }
+      }
+    </style>
+
+    <!-- Modal Próximamente -->
+    <div class="modal fade" id="proximamenteModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+          <h3 class="mb-3">🚧 Próximamente 🚧</h3>
+          <p>Estamos trabajando en nuestro catálogo. Muy pronto podrás descubrir todos nuestros productos.</p>
+          <button type="button" class="btn btn-custom mt-3" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          
+          // Mostrar mensaje si hay error
+          v.onerror = function() {
+              console.error('Error al cargar el script de Voiceflow');
+          };
+          
+          v.onload = function() {
+            try {
+              window.voiceflow.chat.load({
+                verify: { projectID: '683e7b0e20fb626fc20c9dd2' },
+                url: 'https://general-runtime.voiceflow.com',
+                versionID: 'production',
+                voice: {
+                  url: "https://runtime-api.voiceflow.com"
+                },
+                chatContainer: {
+                  styles: {
+                    width: '80px',
+                    height: '80px'
+                  }
+                }
+              });
+              console.log('Chatbot cargado correctamente');
+            } catch (e) {
+              console.error('Error al iniciar Voiceflow:', e);
+            }
+          };
+          
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
+          v.type = "text/javascript"; 
+          s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+<button id="back-to-top" type="button" aria-label="Volver arriba" title="Volver arriba">↑</button>
+<script>
+  (() => {
+    const button = document.getElementById('back-to-top');
+    const menu = document.querySelector('.navbar-menu');
+    const spacer = document.createElement('div');
+    let menuTop = menu ? menu.getBoundingClientRect().top + window.scrollY : 0;
+    const updateMenu = () => {
+      if (!menu) return;
+      const fixed = window.scrollY >= menuTop;
+      if (fixed && !menu.classList.contains('is-fixed')) {
+        spacer.style.height = `${menu.offsetHeight}px`;
+        menu.parentNode.insertBefore(spacer, menu);
+        menu.classList.add('is-fixed');
+      } else if (!fixed && menu.classList.contains('is-fixed')) {
+        menu.classList.remove('is-fixed');
+        spacer.remove();
+      }
+    };
+    const updateButton = () => button.classList.toggle('is-visible', window.scrollY > 240);
+    window.addEventListener('scroll', () => { updateMenu(); updateButton(); }, { passive: true });
+    window.addEventListener('resize', () => {
+      if (menu && !menu.classList.contains('is-fixed')) menuTop = menu.getBoundingClientRect().top + window.scrollY;
+      updateMenu();
+    });
+    button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    updateMenu();
+    updateButton();
+  })();
+</script>
+</body>
+</html>
